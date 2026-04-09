@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitLab イシュー検索"
+  short_description: "コンテキストから関連イシューを探索"
+  default_prompt: "$gitlab-issue-search を使用して、関連するイシューを検索してください。"
+  brand_color: "#FC6D26"

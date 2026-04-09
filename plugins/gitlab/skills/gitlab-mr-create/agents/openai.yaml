@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitLab MR 作成"
+  short_description: "ブランチからMRを作成してメタデータを設定"
+  default_prompt: "$gitlab-mr-create を使用して、現在のブラ���チからマージリクエストを作成してください。"
+  brand_color: "#FC6D26"

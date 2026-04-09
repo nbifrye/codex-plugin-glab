@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitLab イシュー開発"
+  short_description: "イシューから開発ブランチを作成して着手"
+  default_prompt: "$gitlab-issue-develop を使用して、イシューに基づいた開発を開始してください。"
+  brand_color: "#FC6D26"
