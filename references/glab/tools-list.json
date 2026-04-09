@@ -1,0 +1,5941 @@
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete an alias.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_alias_delete"
+      },
+      {
+        "description": "List the available aliases.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_alias_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Set an alias for a longer command.\n\nDeclare a word as an alias for a longer command.\n\nYour expansion might include arguments and...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "shell": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_alias_set"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Make an authenticated request to the GitLab API.\n\nMakes an authenticated HTTP request to the GitLab API, and prints the response.\nThe endpoint...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "field": { "items": { "type": "string" }, "type": "array" },
+                "form": { "items": { "type": "string" }, "type": "array" },
+                "header": { "items": { "type": "string" }, "type": "array" },
+                "hostname": { "type": "string" },
+                "include": { "type": "boolean" },
+                "input": { "type": "string" },
+                "method": { "type": "string" },
+                "output": { "type": "string" },
+                "paginate": { "type": "boolean" },
+                "raw_field": { "items": { "type": "string" }, "type": "array" },
+                "silent": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_api"
+      },
+      {
+        "description": "Verify the provenance of a specific artifact or file. (EXPERIMENTAL)\n\nThis command is experimental.\n\nFor more information about attestations, see:\n\n- [Attestations...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_attestation_verify"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Register glab as a Docker credential helper",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_auth_configure-docker"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "A Docker credential helper for GitLab container registries",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_auth_docker-helper"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Generates a DPoP (demonstrating-proof-of-possession) proof JWT. (EXPERIMENTAL)\n\nDemonstrating-proof-of-possession (DPoP) is a technique to\ncryptographically bind personal...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "hostname": { "type": "string" },
+                "pat": { "type": "string" },
+                "private_key": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_auth_dpop-gen"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Log out from a GitLab instance.\n\nLog out from a GitLab instance.\nConfiguration and credentials are stored in the global...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "hostname": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_auth_logout"
+      },
+      {
+        "description": "View authentication status.\n\nVerifies and displays information about your authentication state.\n\nBy default, this command...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "hostname": { "type": "string" },
+                "show_token": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_auth_status"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Generate a changelog for the repository or project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "config_file": { "type": "string" },
+                "date": { "type": "string" },
+                "from": { "type": "string" },
+                "to": { "type": "string" },
+                "trailer": { "type": "string" },
+                "version": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_changelog_generate"
+      },
+      {
+        "description": "Check for latest glab releases.\n\nChecks for the latest version of glab available on GitLab.com.\n\nWhen run explicitly, this...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_check-update"
+      },
+      {
+        "description": "Download all artifacts from the last pipeline.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "path": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_artifact"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Cancel CI/CD jobs.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "dry_run": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_cancel_job"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Cancel CI/CD pipelines.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "dry_run": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_cancel_pipeline"
+      },
+      {
+        "description": "Checks if your `.gitlab-ci.yml` file is valid.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "dry_run": { "type": "boolean" },
+                "include_jobs": { "type": "boolean" },
+                "ref": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_ci_lint"
+      },
+      {
+        "description": "Trace a CI/CD job log in real time.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "pipeline_id": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_ci_trace"
+      },
+      {
+        "description": "View the fully expanded CI/CD configuration.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_config_compile"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete CI/CD pipelines.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "dry_run": { "type": "boolean" },
+                "older_than": { "type": "string" },
+                "page": { "type": "number" },
+                "paginate": { "type": "boolean" },
+                "per_page": { "type": "number" },
+                "source": { "type": "string" },
+                "status": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_delete"
+      },
+      {
+        "description": "Get JSON of a running CI/CD pipeline on the current or other specified branch.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "output": { "type": "string" },
+                "pipeline_id": { "type": "number" },
+                "with_job_details": { "type": "boolean" },
+                "with_variables": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_get"
+      },
+      {
+        "description": "Checks if your `.gitlab-ci.yml` file is valid.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "dry_run": { "type": "boolean" },
+                "include_jobs": { "type": "boolean" },
+                "ref": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_lint"
+      },
+      {
+        "description": "Get the list of CI/CD pipelines.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "name": { "type": "string" },
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "ref": { "type": "string" },
+                "scope": { "type": "string" },
+                "sha": { "type": "string" },
+                "sort": { "type": "string" },
+                "source": { "type": "string" },
+                "status": { "type": "string" },
+                "updated_after": { "type": "string" },
+                "updated_before": { "type": "string" },
+                "username": { "type": "string" },
+                "yaml_errors": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Retry a CI/CD job.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "pipeline_id": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_retry"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create or run a new CI/CD pipeline.\n\nThe `--branch` option is available for all pipeline types.\n\nThe options for variables are...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "input": { "items": { "type": "string" }, "type": "array" },
+                "mr": { "type": "boolean" },
+                "variables": { "items": { "type": "string" }, "type": "array" },
+                "variables_env": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "variables_file": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "variables_from": { "type": "string" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_run"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Run a CI/CD pipeline trigger.\n\nSpecify one or more pipeline inputs using the `-i` or `--input` flag for each\ninput. Each input...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "input": { "items": { "type": "string" }, "type": "array" },
+                "token": { "type": "string" },
+                "variables": { "items": { "type": "string" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_run-trig"
+      },
+      {
+        "description": "View a running CI/CD pipeline on current or other branch specified.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "compact": { "type": "boolean" },
+                "live": { "type": "boolean" },
+                "output": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_status"
+      },
+      {
+        "description": "Trace a CI/CD job log in real time.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "pipeline_id": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_trace"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Trigger a manual CI/CD job.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "pipeline_id": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ci_trigger"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Bootstrap a GitLab Agent for Kubernetes in a project.\n\nBootstrap a GitLab Agent for Kubernetes (agentk) in a project.\n\nThe first argument must be the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "commit_author_email": { "type": "string" },
+                "commit_author_name": { "type": "string" },
+                "create_environment": { "type": "boolean" },
+                "create_flux_environment": { "type": "boolean" },
+                "environment_flux_resource_path": { "type": "string" },
+                "environment_name": { "type": "string" },
+                "environment_namespace": { "type": "string" },
+                "flux_environment_flux_resource_path": { "type": "string" },
+                "flux_environment_name": { "type": "string" },
+                "flux_environment_namespace": { "type": "string" },
+                "flux_source_name": { "type": "string" },
+                "flux_source_namespace": { "type": "string" },
+                "flux_source_type": { "type": "string" },
+                "gitlab_agent_token_secret_name": { "type": "string" },
+                "helm_release_filepath": { "type": "string" },
+                "helm_release_name": { "type": "string" },
+                "helm_release_namespace": { "type": "string" },
+                "helm_release_target_namespace": { "type": "string" },
+                "helm_release_values": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "helm_release_values_from": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "helm_repository_address": { "type": "string" },
+                "helm_repository_filepath": { "type": "string" },
+                "helm_repository_name": { "type": "string" },
+                "helm_repository_namespace": { "type": "string" },
+                "manifest_branch": { "type": "string" },
+                "manifest_path": { "type": "string" },
+                "no_reconcile": { "type": "boolean" },
+                "use_api_commit_author": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_bootstrap"
+      },
+      {
+        "description": "Check agent configuration files for built-in GitOps manifests usage. (EXPERIMENTAL)\n\nChecks the descendants of a group for registered agents with configuration files that rely on...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "agent_page": { "type": "number" },
+                "agent_per_page": { "type": "number" },
+                "group": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "recursive": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_check_manifest_usage"
+      },
+      {
+        "description": "List GitLab Agents for Kubernetes in a project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Clear cached GitLab Agent tokens\n\nClear cached GitLab Agent tokens from keyring and filesystem cache.\n\nBy default, this command...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "agent": { "items": { "type": "number" }, "type": "array" },
+                "filesystem": { "type": "boolean" },
+                "keyring": { "type": "boolean" },
+                "repo": { "type": "string" },
+                "revoke": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_token-cache_clear"
+      },
+      {
+        "description": "List tokens for an agent.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_token_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Revoke a token of an agent.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_token_revoke"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update selected kubeconfig.\n\nUpdate selected `kubeconfig` for use with a GitLab agent for Kubernetes.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "agent": { "type": "number" },
+                "cache_mode": { "type": "string" },
+                "check_revoked": { "type": "boolean" },
+                "kubeconfig": { "type": "string" },
+                "token_expiry_duration": { "type": "string" },
+                "use_context": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_agent_update-kubeconfig"
+      },
+      {
+        "description": "Queries the Kubernetes object graph, using the GitLab Agent for Kubernetes. (EXPERIMENTAL)\n\nThis command starts a web server that shows a live view of the Kubernetes object graph in a...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "agent": { "type": "number" },
+                "apps": { "type": "boolean" },
+                "batch": { "type": "boolean" },
+                "cluster_rbac": { "type": "boolean" },
+                "core": { "type": "boolean" },
+                "crd": { "type": "boolean" },
+                "ignore_arc_direction": { "type": "boolean" },
+                "listen_addr": { "type": "string" },
+                "listen_net": { "type": "string" },
+                "log_watch_request": { "type": "boolean" },
+                "namespace": { "items": { "type": "string" }, "type": "array" },
+                "ns_expression": { "type": "string" },
+                "ns_field_selector": { "type": "string" },
+                "ns_label_selector": { "type": "string" },
+                "rbac": { "type": "boolean" },
+                "resource": { "items": { "type": "string" }, "type": "array" },
+                "root_expression": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "stdin": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_cluster_graph"
+      },
+      {
+        "description": "Generate shell completion scripts.\n\nThis command outputs code meant to be saved to a file, or immediately\nevaluated by an...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "no_desc": { "type": "boolean" },
+                "shell": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_completion"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Add a deploy key to a GitLab project.\n\nCreates a new deploy key.\n\nRequires the '--title' flag.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "can_push": { "type": "boolean" },
+                "expires_at": { "type": "string" },
+                "title": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_deploy-key_add"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Deletes a single deploy key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_deploy-key_delete"
+      },
+      {
+        "description": "Returns a single deploy key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_deploy-key_get"
+      },
+      {
+        "description": "Get a list of deploy keys for the current project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "show_id": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_deploy-key_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Generate Git commands from natural language.\n\nGenerate Git commands from natural language using AI assistance.\n\nDescribe what you want to do...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "git": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_duo_ask"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Add a GPG key to your GitLab account.\n\nCreates a new GPG key owned by the currently authenticated user.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_gpg-key_add"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Deletes a single GPG key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_gpg-key_delete"
+      },
+      {
+        "description": "Returns a single GPG key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_gpg-key_get"
+      },
+      {
+        "description": "Get a list of GPG keys for the currently authenticated user.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "show_id": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_gpg-key_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Close an incident.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_close"
+      },
+      {
+        "description": "List project incidents.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "assignee": { "type": "string" },
+                "author": { "type": "string" },
+                "closed": { "type": "boolean" },
+                "confidential": { "type": "boolean" },
+                "epic": { "type": "number" },
+                "group": { "type": "string" },
+                "in": { "type": "string" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "milestone": { "type": "string" },
+                "not_assignee": { "type": "string" },
+                "not_author": { "type": "string" },
+                "not_label": { "items": { "type": "string" }, "type": "array" },
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "output_format": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "search": { "type": "string" },
+                "sort": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Comment on an incident in GitLab.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "message": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_note"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Reopen a resolved incident.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_reopen"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Subscribe to an incident.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_subscribe"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Unsubscribe from an incident.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_unsubscribe"
+      },
+      {
+        "description": "Display the title, body, and other information about an incident.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "comments": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "system_logs": { "type": "boolean" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_incident_view"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a project issue board.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "name": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_board_create"
+      },
+      {
+        "description": "View project issue board.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assignee": { "type": "string" },
+                "labels": { "items": { "type": "string" }, "type": "array" },
+                "milestone": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_board_view"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Close an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_close"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assignee": { "items": { "type": "string" }, "type": "array" },
+                "confidential": { "type": "boolean" },
+                "description": { "type": "string" },
+                "due_date": { "type": "string" },
+                "epic": { "type": "number" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "link_type": { "type": "string" },
+                "linked_issues": {
+                  "items": { "type": "number" },
+                  "type": "array"
+                },
+                "linked_mr": { "type": "number" },
+                "milestone": { "type": "string" },
+                "no_editor": { "type": "boolean" },
+                "recover": { "type": "boolean" },
+                "time_estimate": { "type": "string" },
+                "time_spent": { "type": "string" },
+                "title": { "type": "string" },
+                "web": { "type": "boolean" },
+                "weight": { "type": "number" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_delete"
+      },
+      {
+        "description": "List project issues.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "assignee": { "type": "string" },
+                "author": { "type": "string" },
+                "closed": { "type": "boolean" },
+                "confidential": { "type": "boolean" },
+                "epic": { "type": "number" },
+                "group": { "type": "string" },
+                "in": { "type": "string" },
+                "issue_type": { "type": "string" },
+                "iteration": { "type": "number" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "milestone": { "type": "string" },
+                "not_assignee": { "type": "string" },
+                "not_author": { "type": "string" },
+                "not_label": { "items": { "type": "string" }, "type": "array" },
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "output_format": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "search": { "type": "string" },
+                "sort": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Comment on an issue in GitLab.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "message": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_note"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Reopen a closed issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_reopen"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Subscribe to an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_subscribe"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Unsubscribe from an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_unsubscribe"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update issue",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assignee": { "items": { "type": "string" }, "type": "array" },
+                "confidential": { "type": "boolean" },
+                "description": { "type": "string" },
+                "due_date": { "type": "string" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "lock_discussion": { "type": "boolean" },
+                "milestone": { "type": "string" },
+                "public": { "type": "boolean" },
+                "title": { "type": "string" },
+                "unassign": { "type": "boolean" },
+                "unlabel": { "items": { "type": "string" }, "type": "array" },
+                "unlock_discussion": { "type": "boolean" },
+                "weight": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_update"
+      },
+      {
+        "description": "Display the title, body, and other information about an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "comments": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "system_logs": { "type": "boolean" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_issue_view"
+      },
+      {
+        "description": "List project iterations",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_iteration_list"
+      },
+      {
+        "description": "Download all artifacts from the most recent pipeline.\n\nDownloads all artifacts from the most recent successful pipeline.\n\n`<refName>` is a branch name,...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "list_paths": { "type": "boolean" },
+                "path": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_job_artifact"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create labels for a repository or project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "color": { "type": "string" },
+                "description": { "type": "string" },
+                "name": { "type": "string" },
+                "priority": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_label_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete labels for a repository or project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_label_delete"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Edit group or project label.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "color": { "type": "string" },
+                "description": { "type": "string" },
+                "label_id": { "type": "number" },
+                "new_name": { "type": "string" },
+                "priority": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_label_edit"
+      },
+      {
+        "description": "Returns a single label specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_label_get"
+      },
+      {
+        "description": "List labels in the repository.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_label_list"
+      },
+      {
+        "description": "Start a MCP server with stdio transport. (EXPERIMENTAL)\n\nStart a Model Context Protocol server to expose GitLab features\nas tools for AI assistants like...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mcp_serve"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a group or project milestone.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "due_date": { "type": "string" },
+                "group": { "type": "string" },
+                "project": { "type": "string" },
+                "start_date": { "type": "string" },
+                "title": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_milestone_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a group or project milestone.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "project": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_milestone_delete"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Edit a group or project milestone.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "due_date": { "type": "string" },
+                "group": { "type": "string" },
+                "project": { "type": "string" },
+                "start_date": { "type": "string" },
+                "state": { "type": "string" },
+                "title": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_milestone_edit"
+      },
+      {
+        "description": "Get a milestones via an ID for a project or group.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "project": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_milestone_get"
+      },
+      {
+        "description": "Get a list of milestones for a project or group.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "include_ancestors": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "project": { "type": "string" },
+                "search": { "type": "string" },
+                "show_id": { "type": "boolean" },
+                "state": { "type": "string" },
+                "title": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_milestone_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Approve merge requests.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "sha": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_approve"
+      },
+      {
+        "description": "List eligible approvers for merge requests in any state.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_approvers"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Check out an open merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "set_upstream_to": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_checkout"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Close a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_close"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "allow_collaboration": { "type": "boolean" },
+                "assignee": { "items": { "type": "string" }, "type": "array" },
+                "auto_merge": { "type": "boolean" },
+                "copy_issue_labels": { "type": "boolean" },
+                "create_source_branch": { "type": "boolean" },
+                "description": { "type": "string" },
+                "draft": { "type": "boolean" },
+                "fill": { "type": "boolean" },
+                "fill_commit_body": { "type": "boolean" },
+                "head": { "type": "string" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "milestone": { "type": "string" },
+                "no_editor": { "type": "boolean" },
+                "push": { "type": "boolean" },
+                "recover": { "type": "boolean" },
+                "related_issue": { "type": "string" },
+                "remove_source_branch": { "type": "boolean" },
+                "reviewer": { "items": { "type": "string" }, "type": "array" },
+                "signoff": { "type": "boolean" },
+                "source_branch": { "type": "string" },
+                "squash_before_merge": { "type": "boolean" },
+                "target_branch": { "type": "string" },
+                "title": { "type": "string" },
+                "web": { "type": "boolean" },
+                "wip": { "type": "boolean" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_delete"
+      },
+      {
+        "description": "View changes in a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "color": { "type": "string" },
+                "raw": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_diff"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new merge request for an issue.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "allow_collaboration": { "type": "boolean" },
+                "assignee": { "type": "string" },
+                "draft": { "type": "boolean" },
+                "label": { "type": "string" },
+                "milestone": { "type": "number" },
+                "remove_source_branch": { "type": "boolean" },
+                "target_branch": { "type": "string" },
+                "wip": { "type": "boolean" },
+                "with_labels": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_for"
+      },
+      {
+        "description": "Get issues related to a particular merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_issues"
+      },
+      {
+        "description": "List merge requests.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "assignee": { "items": { "type": "string" }, "type": "array" },
+                "author": { "type": "string" },
+                "closed": { "type": "boolean" },
+                "created_after": { "type": "string" },
+                "created_before": { "type": "string" },
+                "deployed_after": { "type": "string" },
+                "deployed_before": { "type": "string" },
+                "draft": { "type": "boolean" },
+                "environment": { "type": "string" },
+                "group": { "type": "string" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "merged": { "type": "boolean" },
+                "milestone": { "type": "string" },
+                "not_draft": { "type": "boolean" },
+                "not_label": { "items": { "type": "string" }, "type": "array" },
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "reviewer": { "items": { "type": "string" }, "type": "array" },
+                "search": { "type": "string" },
+                "sort": { "type": "string" },
+                "source_branch": { "type": "string" },
+                "target_branch": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Merge or accept a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "auto_merge": { "type": "boolean" },
+                "message": { "type": "string" },
+                "rebase": { "type": "boolean" },
+                "remove_source_branch": { "type": "boolean" },
+                "sha": { "type": "string" },
+                "squash": { "type": "boolean" },
+                "squash_message": { "type": "string" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_merge"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Manage comments and discussions on a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "message": { "type": "string" },
+                "unique": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_note"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Rebase the source branch of a merge request against its target branch.\n\nIf you don't have permission to push to the merge request's source branch, you'll get a 403...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "skip_ci": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_rebase"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Reopen a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_reopen"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Revoke approval on a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_revoke"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Subscribe to a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_subscribe"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Add a to-do item to merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_todo"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Unsubscribe from a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_unsubscribe"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assignee": { "items": { "type": "string" }, "type": "array" },
+                "description": { "type": "string" },
+                "draft": { "type": "boolean" },
+                "fill": { "type": "boolean" },
+                "fill_commit_body": { "type": "boolean" },
+                "label": { "items": { "type": "string" }, "type": "array" },
+                "lock_discussion": { "type": "boolean" },
+                "milestone": { "type": "string" },
+                "ready": { "type": "boolean" },
+                "remove_source_branch": { "type": "boolean" },
+                "reviewer": { "items": { "type": "string" }, "type": "array" },
+                "squash_before_merge": { "type": "boolean" },
+                "target_branch": { "type": "string" },
+                "title": { "type": "string" },
+                "unassign": { "type": "boolean" },
+                "unlabel": { "items": { "type": "string" }, "type": "array" },
+                "unlock_discussion": { "type": "boolean" },
+                "wip": { "type": "boolean" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_update"
+      },
+      {
+        "description": "Display the title, body, and other information about a merge request.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "comments": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "resolved": { "type": "boolean" },
+                "system_logs": { "type": "boolean" },
+                "unresolved": { "type": "boolean" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_mr_view"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Initialize OpenTofu or Terraform.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "binary": { "type": "string" },
+                "directory": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_opentofu_init"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete the given state or if the serial is provided only that version of the given state.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "force": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_opentofu_state_delete"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "List states.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_opentofu_state_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Lock the given state.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_opentofu_state_lock"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Unlock the given state.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_opentofu_state_unlock"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new GitLab release, or update an existing one.\n\nCreate a new GitLab release for a repository, or\nupdate an existing one. Requires at least the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assets_links": { "type": "string" },
+                "milestone": { "items": { "type": "string" }, "type": "array" },
+                "name": { "type": "string" },
+                "no_close_milestone": { "type": "boolean" },
+                "no_update": { "type": "boolean" },
+                "notes": { "type": "string" },
+                "notes_file": { "type": "string" },
+                "package_name": { "type": "string" },
+                "publish_to_catalog": { "type": "boolean" },
+                "ref": { "type": "string" },
+                "released_at": { "type": "string" },
+                "tag_message": { "type": "string" },
+                "use_package_registry": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a GitLab release.\n\nDelete release assets to GitLab release. Requires the Maintainer role or higher.\n\nDeleting a...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "with_tag": { "type": "boolean" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_delete"
+      },
+      {
+        "description": "Download asset files from a GitLab release.\n\nDownload asset files from a GitLab release.\n\nIf no tag is specified, downloads assets from the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "asset_name": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "dir": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_download"
+      },
+      {
+        "description": "List releases in a repository.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Upload release asset files or links to a GitLab release.\n\nUpload release assets to a GitLab release.\n\nDefine the display name by appending '#' after the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "assets_links": { "type": "string" },
+                "package_name": { "type": "string" },
+                "use_package_registry": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_upload"
+      },
+      {
+        "description": "View information about a GitLab release.\n\nView information about a GitLab release.\n\nWithout an explicit tag name argument, shows the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_release_view"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Get an archive of the repository.\n\nClone supports these shorthand references:\n\n- repo\n- namespace/repo\n- namespace/group/repo\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "format": { "type": "string" },
+                "sha": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_archive"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Clone a GitLab repository or project.\n\nClone a GitLab repository to your local machine. Specify the\nrepository by name, namespace/repo...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "active": { "type": "boolean" },
+                "archived": { "type": "boolean" },
+                "group": { "type": "string" },
+                "include_subgroups": { "type": "boolean" },
+                "mine": { "type": "boolean" },
+                "page": { "type": "number" },
+                "paginate": { "type": "boolean" },
+                "per_page": { "type": "number" },
+                "preserve_namespace": { "type": "boolean" },
+                "visibility": { "type": "string" },
+                "with_issues_enabled": { "type": "boolean" },
+                "with_mr_enabled": { "type": "boolean" },
+                "with_shared": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_clone"
+      },
+      {
+        "description": "Get repository contributors list.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "sort": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_contributors"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new GitLab project/repository.\n\nCreates the new project with your first configured host in your `glab`\nconfiguration. The host...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "defaultBranch": { "type": "string" },
+                "description": { "type": "string" },
+                "group": { "type": "string" },
+                "internal": { "type": "boolean" },
+                "name": { "type": "string" },
+                "private": { "type": "boolean" },
+                "public": { "type": "boolean" },
+                "readme": { "type": "boolean" },
+                "remoteName": { "type": "string" },
+                "skipGitInit": { "type": "boolean" },
+                "tag": { "items": { "type": "string" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete an existing project on GitLab.\n\nDelete an existing project on GitLab.\n\nThis permanently deletes the entire project, including:...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "yes": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_delete"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Fork a GitLab repository.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "clone": { "type": "boolean" },
+                "name": { "type": "string" },
+                "path": { "type": "string" },
+                "remote": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_fork"
+      },
+      {
+        "description": "Get list of repositories.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "archived": { "type": "boolean" },
+                "group": { "type": "string" },
+                "include_subgroups": { "type": "boolean" },
+                "member": { "type": "boolean" },
+                "mine": { "type": "boolean" },
+                "order": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "sort": { "type": "string" },
+                "starred": { "type": "boolean" },
+                "user": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Add a member to the project.\n\nAdd a member to the project with the specified role.\n\nRoles:\n\n- guest (10): Can view the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "expires_at": { "type": "string" },
+                "repo": { "type": "string" },
+                "role": { "type": "string" },
+                "role_id": { "type": "number" },
+                "user_id": { "type": "number" },
+                "username": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_members_add"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Remove a member from the project.\n\nRemove a member from the project.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "repo": { "type": "string" },
+                "user_id": { "type": "number" },
+                "username": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_members_remove"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Configure mirroring on an existing project to sync with a remote repository.\n\nConfigure repository mirroring for an existing GitLab project.\n\nThe GitLab project must already...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "allow_divergence": { "type": "boolean" },
+                "direction": { "type": "string" },
+                "enabled": { "type": "boolean" },
+                "protected_branches_only": { "type": "boolean" },
+                "url": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_mirror"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "[EXPERIMENTAL] Publishes CI/CD components to the catalog.\n\n[EXPERIMENTAL] Publishes CI/CD components in the project to the CI/CD catalog using the provided...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_publish_catalog"
+      },
+      {
+        "description": "Search for GitLab repositories and projects by name.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "search": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_search"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Transfer a repository to a new namespace.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "target_namespace": { "type": "string" },
+                "yes": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_transfer"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update an existing GitLab project or repository.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "archive": { "type": "boolean" },
+                "defaultBranch": { "type": "string" },
+                "description": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_update"
+      },
+      {
+        "description": "View a project or repository.\n\nDisplay the description and README of a project, or open it in the browser.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "branch": { "type": "string" },
+                "output": { "type": "string" },
+                "web": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_repo_view"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "output": { "type": "string" },
+                "state": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "force": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_delete"
+      },
+      {
+        "description": "Get details of a runner controller. (EXPERIMENTAL)\n\nRetrieves details of a single runner controller, including its\nconnection status. This is an...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_get"
+      },
+      {
+        "description": "List runner controllers. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a scope for a runner controller. (EXPERIMENTAL)\n\nCreates a scope for a runner controller. This is an administrator-only feature.\n\nUse one of the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "instance": { "type": "boolean" },
+                "output": { "type": "string" },
+                "runner": { "items": { "type": "number" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_scope_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a scope from a runner controller. (EXPERIMENTAL)\n\nDeletes a scope from a runner controller. This is an administrator-only feature.\n\nUse one of the...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "force": { "type": "boolean" },
+                "instance": { "type": "boolean" },
+                "runner": { "items": { "type": "number" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_scope_delete"
+      },
+      {
+        "description": "List scopes for a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "output": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_scope_list"
+      },
+      {
+        "description": "List tokens for a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_token_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Revoke a token from a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "force": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_token_revoke"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update a runner controller. (EXPERIMENTAL)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "output": { "type": "string" },
+                "state": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner-controller_update"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Assign a runner to a project.\n\nAssigns a runner to a project.\n\nRequires the Maintainer or Owner role for the project.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "repo": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_assign"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a runner.\n\nPermanently deletes a runner from the GitLab instance.\n\nPrerequisites:\n\n- Maintainer or Owner...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "force": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_delete"
+      },
+      {
+        "description": "List jobs processed by a runner.\n\nLists jobs processed by the specified runner, including jobs that are currently running....",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "order_by": { "type": "string" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "sort": { "type": "string" },
+                "status": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_jobs"
+      },
+      {
+        "description": "List runners.\n\nList runners for a project (default), group, or instance.\n\nInstance scope requires administrator...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "instance": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_list"
+      },
+      {
+        "description": "List runner managers.\n\nLists the managers of a runner.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "repo": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_managers"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Unassign a runner from a project.\n\nUnassign a runner from a project.\nYou cannot unassign a runner from the owner project.\nUse `glab...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "repo": { "type": "string" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_unassign"
+      },
+      {
+        "description": "Update a runner.\n\nUpdates settings for a GitLab CI/CD runner.\n\nUse flags to update the runner configuration, such...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "pause": { "type": "boolean" },
+                "unpause": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_runner_update"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Schedule a new pipeline.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "active": { "type": "boolean" },
+                "cron": { "type": "string" },
+                "cronTimeZone": { "type": "string" },
+                "description": { "type": "string" },
+                "ref": { "type": "string" },
+                "variable": { "items": { "type": "string" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_schedule_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete the schedule with the specified ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_schedule_delete"
+      },
+      {
+        "description": "Get the list of schedules.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_schedule_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Run the specified scheduled pipeline.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_schedule_run"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update a pipeline schedule.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "active": { "type": "boolean" },
+                "create_variable": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "cron": { "type": "string" },
+                "cronTimeZone": { "type": "string" },
+                "delete_variable": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                },
+                "description": { "type": "string" },
+                "ref": { "type": "string" },
+                "update_variable": {
+                  "items": { "type": "string" },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_schedule_update"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new project secure file.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_securefile_create"
+      },
+      {
+        "description": "Get details of a project secure file. (GitLab 18.0 and later)",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_securefile_get"
+      },
+      {
+        "description": "List secure files for a project.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_securefile_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Remove a secure file.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": { "yes": { "type": "boolean" } },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_securefile_remove"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new snippet.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "filename": { "type": "string" },
+                "personal": { "type": "boolean" },
+                "title": { "type": "string" },
+                "visibility": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_snippet_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Add an SSH key to your GitLab account.\n\nCreates a new SSH key owned by the currently authenticated user.\n\nRequires the '--title' flag.\n",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "expires_at": { "type": "string" },
+                "title": { "type": "string" },
+                "usage_type": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ssh-key_add"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Deletes a single SSH key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ssh-key_delete"
+      },
+      {
+        "description": "Returns a single SSH key specified by the ID.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ssh-key_get"
+      },
+      {
+        "description": "Get a list of SSH keys for the currently authenticated user.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" },
+                "show_id": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_ssh-key_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Save more changes to a stacked diff. (EXPERIMENTAL)\n\nAdd more changes to an existing stacked diff.\n\nThis feature is an experiment and is not ready...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "description": { "type": "string" },
+                "message": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_amend"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new stacked diff. (EXPERIMENTAL)\n\nCreate a new stacked diff. Adds metadata to your `./.git/stacked` directory.\n\nThis feature is an...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_create"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Moves to the first diff in the stack. (EXPERIMENTAL)\n\nMoves to the first diff in the stack, and checks out that branch.\n\nThis feature is an experiment...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_first"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Moves to the last diff in the stack. (EXPERIMENTAL)\n\nMoves to the last diff in the stack, and checks out that branch.\n\nThis feature is an experiment...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_last"
+      },
+      {
+        "description": "Lists all entries in the stack. (EXPERIMENTAL)\n\nLists all entries in the stack. To select a different revision, use a command like 'stack move'....",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Moves to any selected entry in the stack. (EXPERIMENTAL)\n\nShows a menu with a fuzzy finder to select a stack.\n\nThis feature is an experiment and is not...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_move"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Moves to the next diff in the stack. (EXPERIMENTAL)\n\nMoves to the next diff in the stack, and checks out that branch.\n\nThis feature is an experiment...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_next"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Moves to the previous diff in the stack. (EXPERIMENTAL)\n\nMoves to the previous diff in the stack, and checks out that branch.\n\nThis feature is an...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_prev"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Reorder a stack of merge requests. (EXPERIMENTAL)\n\nReorder how the current stack's merge requests are merged.\nThis feature is an experiment and is...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_reorder"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Save your progress within a stacked diff. (EXPERIMENTAL)\n\nSave your current progress with a diff on the stack.\n\nThis feature is an experiment and is not...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "description": { "type": "string" },
+                "message": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_save"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Switch between stacks. (EXPERIMENTAL)\n\nSwitch between stacks to work on another stack created with \"glab stack create\".\nTo see the list...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_switch"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Sync and submit progress on a stacked diff. (EXPERIMENTAL)\n\nSync and submit progress on a stacked diff. This command runs these steps:\n\n1. Optional. If...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "no_verify": { "type": "boolean" },
+                "update_base": { "type": "boolean" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_stack_sync"
+      },
+      {
+        "description": "List user, group, or project access tokens.\n\nList all tokens for a user, group, or project.\n\nThe output contains the token's meta...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "active": { "type": "boolean" },
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "repo": { "type": "string" },
+                "user": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_token_list"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Revoke user, group or project access tokens\n\nRevoke an user, group or project access token. If multiple tokens with the same name exist, you...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "repo": { "type": "string" },
+                "user": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_token_revoke"
+      },
+      {
+        "description": "View user events.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "all": { "type": "boolean" },
+                "output": { "type": "string" },
+                "page": { "type": "number" },
+                "per_page": { "type": "number" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_user_events"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Delete a variable for a project or group.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "group": { "type": "string" },
+                "scope": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_variable_delete"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Create a new variable for a project or group.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "group": { "type": "string" },
+                "hidden": { "type": "boolean" },
+                "masked": { "type": "boolean" },
+                "protected": { "type": "boolean" },
+                "raw": { "type": "boolean" },
+                "scope": { "type": "string" },
+                "type": { "type": "string" },
+                "value": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_variable_set"
+      },
+      {
+        "annotations": { "destructiveHint": true },
+        "description": "Update an existing variable for a project or group.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "description": { "type": "string" },
+                "group": { "type": "string" },
+                "masked": { "type": "boolean" },
+                "protected": { "type": "boolean" },
+                "raw": { "type": "boolean" },
+                "scope": { "type": "string" },
+                "type": { "type": "string" },
+                "value": { "type": "string" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_variable_update"
+      },
+      {
+        "description": "Show version information for glab.",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {},
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_version"
+      },
+      {
+        "description": "List work items in a project or group. (EXPERIMENTAL)\n\nList work items in a project or group.\n\nAutomatically detects scope from repository context. Use...",
+        "inputSchema": {
+          "properties": {
+            "args": {
+              "description": "Positional arguments",
+              "items": { "type": "string" },
+              "type": "array"
+            },
+            "flags": {
+              "description": "Command flags",
+              "properties": {
+                "after": { "type": "string" },
+                "group": { "type": "string" },
+                "output": { "type": "string" },
+                "per_page": { "type": "number" },
+                "repo": { "type": "string" },
+                "state": { "type": "string" },
+                "type": { "items": { "type": "string" }, "type": "array" }
+              },
+              "type": "object"
+            },
+            "limit": {
+              "default": 50000,
+              "description": "Response size limit",
+              "type": "number"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Pagination offset",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "name": "glab_work-items_list"
+      }
+    ]
+  }
+}

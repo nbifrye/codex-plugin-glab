@@ -52,3 +52,7 @@
 mkdir -p ~/.codex/plugins
 cp -R path/to/codex-plugin-glab/plugins/gitlab ~/.codex/plugins/gitlab
 ```
+
+## 開発者向け
+
+`glab mcp serve` で公開されるツールの一覧は `references/glab/tools-list.json` に配置されている
