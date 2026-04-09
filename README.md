@@ -213,13 +213,10 @@ skills/<skill-name>/
 - `SKILL.md` の frontmatter (`name`, `description`) がスキルの識別と呼び出し条件を定義します
 - `references/` ディレクトリに API リファレンスなどの補足資料を配置できます
 
-### 既知の TODO
+### 拡張ポイント
 
-- ライセンスの確定 (`plugin.json` の `license` フィールド)
-- ホームページ URL の設定
-- カテゴリ・ケイパビリティの確定
-- `hooks.json` / `.app.json` は現在未使用（拡張ポイント）
+- `hooks.json` / `.app.json` は現在未使用です。将来的にフック機能やアプリ連携を追加する際に利用します。
 
 ## ライセンス
 
-未確定。`plugins/gitlab/.codex-plugin/plugin.json` の `license` フィールドを参照してください。
+MIT ライセンスの下で公開されています。詳細は `plugins/gitlab/.codex-plugin/plugin.json` の `license` フィールドを参照してください。
