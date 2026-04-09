@@ -21,7 +21,11 @@ Once the intent is clear, route to the specialist skill immediately and do not k
 
 Handle these directly in this skill when the request does not need a narrower specialist workflow:
 
-- xxx
+- List, view, and summarize MRs and issues
+- Create, update, close, reopen MRs and issues
+- Manage labels, milestones, assignees, reviewers
+- Check MR approval status
+- View CI/CD pipeline status
 
 Prefer the GitLab MCP Server from this plugin for those flows because it provides structured MR, issue, and review-adjacent data without depending on a local checkout. If the repository is not already identifiable from the user request or local git context, ask for the repo instead of pretending there is a repo-search flow that may not exist.
 
@@ -32,9 +36,12 @@ Prefer the GitLab MCP Server from this plugin for those flows because it provide
    - If the request is about "this branch" or "the current MR", resolve local git context and use `glab` only as needed to discover the branch MR.
    - If the repository is still ambiguous after local inspection, ask for the repo identifier.
 2. Classify the request before taking action:
-   - xxx
+   - MR code review, feedback, or posting review comments → `$gitlab-mr-review`
+   - Addressing, fixing, or responding to unresolved MR review discussions → `$gitlab-mr-address-comments`
+   - General MR/issue triage, listing, creation, or management → handle in this skill
 3. Route to the specialist skill as soon as the category is clear:
-   - xxx
+   - **MR review**: `$gitlab-mr-review` - reviewing code and posting inline diff comments
+   - **Address review comments**: `$gitlab-mr-address-comments` - fixing unresolved discussions and replying
 4. Keep the hybrid model consistent after routing:
    - connector first for MR and issue data
    - local `git` and `glab` only for the specific gaps the connector does not cover
