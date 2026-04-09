@@ -73,16 +73,7 @@ codex-plugin-glab/
 
 1. **Claude Code (Codex)** がインストール・起動されていること
 2. **glab CLI** がインストールされ、GitLab に認証済みであること
-   ```bash
-   # インストール（macOS の場合）
-   brew install glab
-
-   # 認証
-   glab auth login
-
-   # 認証状態の確認
-   glab auth status
-   ```
+   - インストールと設定については公式ページを参照してください: https://gitlab.com/gitlab-org/cli
 3. **Git** がインストールされていること
 
 ## インストール
