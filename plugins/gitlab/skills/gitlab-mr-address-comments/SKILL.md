@@ -1,53 +1,53 @@
 ---
 name: gitlab-mr-address-comments
 description: >-
-  List unresolved review discussions on a GitLab merge request, implement code
-  fixes for each, reply to the discussion explaining the change, and resolve it.
-  Use when the user asks to address, fix, or respond to MR review comments,
-  unresolved discussions, or review feedback.
+  GitLabマージリクエストの未解決レビューディスカッションを一覧表示し、
+  各ディスカッションに対するコード修正を実装し、変更内容を説明する返信を投稿し、
+  ディスカッションを解決する。ユーザーがMRレビューコメント、未解決ディスカッション、
+  レビューフィードバックへの対応・修正・返信を求めた場合に使用する。
 ---
 
-# GitLab MR Address Comments
+# GitLab MR コメント対応
 
-Fetch unresolved MR review discussions, implement code fixes, reply explaining each change, and resolve the discussions.
+未解決のMRレビューディスカッションを取得し、コード修正を実装し、各変更内容を説明する返信を投稿し、ディスカッションを解決する。
 
-## Workflow
+## ワークフロー
 
-1. **Resolve MR context**
-   - If the user provides an MR number, use it directly.
-   - If working on a branch, run `glab_mr_for` to discover the MR for the current branch.
-   - Determine the project path from local git remote or user input.
+1. **MRコンテキストの解決**
+   - ユーザーがMR番号を提供した場合、それを直接使用する。
+   - ブランチで作業中の場合、`glab_mr_for` を実行して現在のブランチのMRを検出する。
+   - ローカルのgitリモートまたはユーザー入力からプロジェクトパスを特定する。
 
-2. **Fetch unresolved discussions**
-   - Run `glab_mr_view <IID> --comments --unresolved` for a quick human-readable overview.
-   - For structured data (discussion IDs, positions, note IDs), call `glab_api` GET `projects/<encoded_project>/merge_requests/<iid>/discussions`.
-   - Read `references/gitlab-discussions-api.md` for the response structure.
-   - Filter to discussions where at least one note has `resolvable: true` and `resolved: false`.
+2. **未解決ディスカッションの取得**
+   - `glab_mr_view <IID> --comments --unresolved` を実行して、人間が読みやすい概要を取得する。
+   - 構造化データ（ディスカッションID、位置情報、ノートID）が必要な場合、`glab_api` GET `projects/<encoded_project>/merge_requests/<iid>/discussions` を呼び出す。
+   - レスポンス構造については `references/gitlab-discussions-api.md` を参照する。
+   - `resolvable: true` かつ `resolved: false` のノートを持つディスカッションのみを抽出する。
 
-3. **Parse each unresolved discussion**
-   - Extract from each discussion:
-     - `discussion.id` - needed for replies and resolution
-     - `notes[0].body` - the reviewer's comment text
-     - `notes[0].position.new_path` - file path (if inline comment)
-     - `notes[0].position.new_line` - line number (if inline comment)
-   - For general comments (no `position`), interpret the comment to identify which code it refers to.
-   - Group related discussions that affect the same file or area to plan coherent fixes.
+3. **各未解決ディスカッションの解析**
+   - 各ディスカッションから以下を抽出する：
+     - `discussion.id` - 返信と解決に必要
+     - `notes[0].body` - レビュアーのコメントテキスト
+     - `notes[0].position.new_path` - ファイルパス（インラインコメントの場合）
+     - `notes[0].position.new_line` - 行番号（インラインコメントの場合）
+   - 一般コメント（`position` なし）の場合、コメント内容を解釈してどのコードを指しているか特定する。
+   - 同じファイルや領域に影響する関連ディスカッションをグループ化して、一貫性のある修正を計画する。
 
-4. **Present findings to user**
-   - List all unresolved discussions with: file, line, reviewer comment summary.
-   - Confirm the plan of action before making changes, unless the user asked to fix all.
+4. **ユーザーへの調査結果の提示**
+   - すべての未解決ディスカッションを一覧表示する：ファイル、行、レビュアーコメントの要約。
+   - ユーザーが「すべて修正」を指示した場合を除き、変更前にアクションプランを確認する。
 
-5. **Checkout the MR branch**
-   - If not already on the MR source branch, run `glab_mr_checkout <IID>` or `git checkout <branch>`.
-   - Pull the latest changes.
+5. **MRブランチのチェックアウト**
+   - MRのソースブランチにいない場合、`glab_mr_checkout <IID>` または `git checkout <branch>` を実行する。
+   - 最新の変更をプルする。
 
-6. **Implement fixes**
-   - For each discussion (or group), apply the code change that addresses the reviewer's concern.
-   - Read the surrounding code for full context before editing.
-   - Make minimal, focused changes that directly address the feedback.
+6. **修正の実装**
+   - 各ディスカッション（またはグループ）に対して、レビュアーの懸念事項に対応するコード変更を適用する。
+   - 編集前に周辺コードを読み取って完全なコンテキストを把握する。
+   - フィードバックに直接対応する、最小限で焦点を絞った変更を行う。
 
-7. **Reply to each discussion**
-   - After implementing the fix, reply to the discussion via `glab_api`. **Use `raw_field` (not `field`)** to avoid Go template rendering that corrupts values:
+7. **各ディスカッションへの返信**
+   - 修正実装後、`glab_api` でディスカッションに返信する。**Go テンプレートレンダリングによる値の破損を防ぐため、`raw_field`（`field` ではなく）を使用する：**
      ```
      args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
      flags:
@@ -55,10 +55,10 @@ Fetch unresolved MR review discussions, implement code fixes, reply explaining e
        raw_field:
          - "body=<explanation of the fix>"
      ```
-   - Keep replies concise: state what was changed and why.
+   - 返信は簡潔に：変更内容とその理由を記述する。
 
-8. **Resolve each discussion**
-   - After replying, resolve the discussion via `glab_api`:
+8. **各ディスカッションの解決**
+   - 返信後、`glab_api` でディスカッションを解決する：
      ```
      args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
      flags:
@@ -67,23 +67,23 @@ Fetch unresolved MR review discussions, implement code fixes, reply explaining e
          - "resolved=true"
      ```
 
-9. **Commit and push**
-   - Commit all changes with a descriptive message (e.g., "Address MR review comments for !<IID>").
-   - Push to the MR source branch.
+9. **コミットとプッシュ**
+   - 説明的なコミットメッセージですべての変更をコミットする（例: "Address MR review comments for !<IID>"）。
+   - MRのソースブランチにプッシュする。
 
-## Discussion Parsing Guidance
+## ディスカッション解析ガイダンス
 
-- **Inline comments** have a `position` object with `new_path` and `new_line` - use these to locate the exact code.
-- **General comments** lack `position` - read the comment body carefully to identify which code is being discussed. The reviewer may reference file names, function names, or line numbers in the text.
-- **Threaded discussions** may have multiple notes. Read all notes in the thread to understand the full conversation and the latest state of the feedback.
-- **Already-resolved discussions** (all notes have `resolved: true`) should be skipped.
+- **インラインコメント** は `new_path` と `new_line` を含む `position` オブジェクトを持つ - これらを使用して正確なコードの位置を特定する。
+- **一般コメント** は `position` を持たない - コメント本文を注意深く読み、どのコードが議論されているか特定する。レビュアーがテキスト中でファイル名、関数名、行番号を参照している場合がある。
+- **スレッド化されたディスカッション** は複数のノートを持つ場合がある。スレッド内のすべてのノートを読み、会話の全体像とフィードバックの最新状態を把握する。
+- **既に解決済みのディスカッション**（すべてのノートが `resolved: true`）はスキップする。
 
-## Output
+## 出力
 
-For each discussion addressed, report:
-1. The original reviewer comment (abbreviated)
-2. The file and line affected
-3. The fix applied
-4. The reply posted
+対応した各ディスカッションについて以下を報告する：
+1. レビュアーの元のコメント（要約）
+2. 影響を受けたファイルと行
+3. 適用した修正
+4. 投稿した返信
 
-End with: total discussions addressed, commit hash, and push status.
+最後に：対応したディスカッションの合計数、コミットハッシュ、プッシュ状態を報告する。

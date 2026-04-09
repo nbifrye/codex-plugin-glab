@@ -1,41 +1,41 @@
-# GitLab Discussions API Reference
+# GitLab Discussions API リファレンス
 
-## Overview
+## 概要
 
-The GitLab Discussions API enables creating position-based (inline) comments on merge request diffs. The `glab_mr_note` tool only supports general comments, so use `glab_api` for inline diff comments.
+GitLab Discussions APIは、マージリクエストのdiffに対する位置ベース（インライン）コメントの作成を可能にする。`glab_mr_note` ツールは一般コメントのみサポートするため、インラインdiffコメントには `glab_api` を使用する。
 
-## Prerequisites
+## 前提条件
 
-### Get diff_refs
+### diff_refs の取得
 
-Obtain SHA values required for position-based comments:
+位置ベースコメントに必要なSHA値を取得する：
 
 ```
 glab_mr_view <IID> --output json
 ```
 
-Extract from the response:
-- `diff_refs.base_sha` - merge base commit
-- `diff_refs.head_sha` - head of the source branch
-- `diff_refs.start_sha` - start of the diff range
+レスポンスから以下を抽出する：
+- `diff_refs.base_sha` - マージベースコミット
+- `diff_refs.head_sha` - ソースブランチのヘッド
+- `diff_refs.start_sha` - diff範囲の開始点
 
-If `diff_refs` is not available via `glab_mr_view`, use:
+`glab_mr_view` で `diff_refs` が取得できない場合、以下を使用する：
 
 ```
 glab_api GET projects/<encoded_project>/merge_requests/<iid>
 ```
 
-### URL-encode the project path
+### プロジェクトパスのURLエンコード
 
-Replace `/` with `%2F` in the project path:
+プロジェクトパス内の `/` を `%2F` に置換する：
 - `my-group/my-project` → `my-group%2Fproject`
 - `group/subgroup/project` → `group%2Fsubgroup%2Fproject`
 
-## Create Inline Discussion (Position-Based Comment)
+## インラインディスカッションの作成（位置ベースコメント）
 
-**Endpoint:** `POST /projects/:id/merge_requests/:iid/discussions`
+**エンドポイント:** `POST /projects/:id/merge_requests/:iid/discussions`
 
-### Comment on a new (added) line
+### 新規（追加）行へのコメント
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -51,7 +51,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[new_line]=42"
 ```
 
-### Comment on a deleted line
+### 削除行へのコメント
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -67,9 +67,9 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[old_line]=10"
 ```
 
-### Comment on a modified line
+### 変更行へのコメント
 
-Include both old and new positions:
+旧位置と新位置の両方を含める：
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -87,9 +87,9 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[new_line]=12"
 ```
 
-## List Discussions
+## ディスカッション一覧の取得
 
-**Endpoint:** `GET /projects/:id/merge_requests/:iid/discussions`
+**エンドポイント:** `GET /projects/:id/merge_requests/:iid/discussions`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -97,26 +97,26 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
     method: "GET"
 ```
 
-### Response Structure
+### レスポンス構造
 
-Each discussion contains:
-- `id` - discussion ID (used for replies and resolution)
-- `individual_note` - true if this is a standalone note, false if a threaded discussion
-- `notes[]` - array of notes in the discussion:
-  - `notes[].id` - note ID
-  - `notes[].body` - comment text
-  - `notes[].author.username` - author
-  - `notes[].position` - position object (for inline comments):
-    - `position.new_path` - file path in new version
-    - `position.new_line` - line number in new version
-    - `position.old_path` - file path in old version
-    - `position.old_line` - line number in old version
-  - `notes[].resolvable` - whether this note can be resolved
-  - `notes[].resolved` - whether this note is resolved
+各ディスカッションには以下が含まれる：
+- `id` - ディスカッションID（返信と解決に使用）
+- `individual_note` - スタンドアロンのノートの場合はtrue、スレッドディスカッションの場合はfalse
+- `notes[]` - ディスカッション内のノート配列：
+  - `notes[].id` - ノートID
+  - `notes[].body` - コメントテキスト
+  - `notes[].author.username` - 作成者
+  - `notes[].position` - 位置オブジェクト（インラインコメントの場合）：
+    - `position.new_path` - 新バージョンのファイルパス
+    - `position.new_line` - 新バージョンの行番号
+    - `position.old_path` - 旧バージョンのファイルパス
+    - `position.old_line` - 旧バージョンの行番号
+  - `notes[].resolvable` - このノートが解決可能かどうか
+  - `notes[].resolved` - このノートが解決済みかどうか
 
-## Reply to a Discussion
+## ディスカッションへの返信
 
-**Endpoint:** `POST /projects/:id/merge_requests/:iid/discussions/:discussion_id/notes`
+**エンドポイント:** `POST /projects/:id/merge_requests/:iid/discussions/:discussion_id/notes`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
@@ -126,9 +126,9 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
       - "body=Reply text here"
 ```
 
-## Resolve / Unresolve a Discussion
+## ディスカッションの解決 / 未解決化
 
-**Endpoint:** `PUT /projects/:id/merge_requests/:iid/discussions/:discussion_id`
+**エンドポイント:** `PUT /projects/:id/merge_requests/:iid/discussions/:discussion_id`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
@@ -138,10 +138,10 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
       - "resolved=true"
 ```
 
-To unresolve, set `resolved=false`.
+未解決にする場合は `resolved=false` を設定する。
 
-## Error Handling
+## エラーハンドリング
 
-- **400 Bad Request with position error**: The specified line is not part of the diff. Verify the line number exists in the diff output. Fall back to a general comment via `glab_mr_note`.
-- **404 Not Found**: Check that the project path is correctly URL-encoded and the MR IID is correct.
-- **403 Forbidden**: The authenticated user may not have permission to comment on this MR.
+- **400 Bad Request（位置エラー）**: 指定された行がdiffの一部ではない。diff出力内にその行番号が存在することを確認する。`glab_mr_note` による一般コメントにフォールバックする。
+- **404 Not Found**: プロジェクトパスが正しくURLエンコードされているか、MR IIDが正しいか確認する。
+- **403 Forbidden**: 認証されたユーザーがこのMRにコメントする権限を持っていない可能性がある。

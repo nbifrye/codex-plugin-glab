@@ -1,5 +1,5 @@
 interface:
-  display_name: "GitLab MR Address Comments"
-  short_description: "Fix unresolved MR review comments"
-  default_prompt: "Use $gitlab-mr-address-comments to fix unresolved review comments on this MR."
+  display_name: "GitLab MR コメント対応"
+  short_description: "未解決のMRレビューコメントを修正"
+  default_prompt: "$gitlab-mr-address-comments を使用して、このMRの未解決レビューコメントを修正してください。"
   brand_color: "#FC6D26"
