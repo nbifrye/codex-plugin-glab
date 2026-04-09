@@ -11,13 +11,38 @@
   "name": "gitlab",
   "source": {
     "source": "local",
-    "path": "./plugins/gitlab"
+    "path": "./.codex/plugins/gitlab"
   },
   "policy": {
     "installation": "AVAILABLE",
     "authentication": "ON_INSTALL"
   },
   "category": "Productivity"
+}
+```
+
+完全な `~/.agents/plugins/marketplace.json` のサンプル:
+
+```json
+{
+  "name": "local-plugins",
+  "interface": {
+    "displayName": "Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "gitlab",
+      "source": {
+        "source": "local",
+        "path": "./.codex/plugins/gitlab"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
 }
 ```
 
