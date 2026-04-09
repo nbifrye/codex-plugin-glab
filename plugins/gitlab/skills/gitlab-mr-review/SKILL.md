@@ -1,62 +1,62 @@
 ---
 name: gitlab-mr-review
 description: >-
-  Review a GitLab merge request: read the diff, analyze code quality, post
-  inline diff comments on specific lines, and submit a review summary.
-  Use when the user asks to review an MR, provide code review feedback,
-  or post review comments on a merge request.
+  GitLabマージリクエストをレビューする：diffを読み取り、コード品質を分析し、
+  特定の行にインラインdiffコメントを投稿し、レビューサマリーを送信する。
+  ユーザーがMRのレビュー、コードレビューフィードバックの提供、
+  マージリクエストへのレビューコメント投稿を求めた場合に使用する。
 ---
 
-# GitLab MR Review
+# GitLab MR レビュー
 
-Review MR code changes and post feedback as inline diff comments (position-based) on specific lines and a summary comment.
+MRのコード変更をレビューし、特定の行へのインラインdiffコメント（位置ベース）とサマリーコメントとしてフィードバックを投稿する。
 
-## Workflow
+## ワークフロー
 
-1. **Resolve MR context**
-   - If the user provides an MR number, use it directly.
-   - If working on a branch, run `glab_mr_for` to discover the MR for the current branch.
-   - Determine the project path from local git remote or user input.
+1. **MRコンテキストの解決**
+   - ユーザーがMR番号を提供した場合、それを直接使用する。
+   - ブランチで作業中の場合、`glab_mr_for` を実行して現在のブランチのMRを検出する。
+   - ローカルのgitリモートまたはユーザー入力からプロジェクトパスを特定する。
 
-2. **Fetch MR metadata**
-   - Run `glab_mr_view <IID> --output json` to get:
-     - Title, description, author, labels, source/target branches
-     - `diff_refs` object: `base_sha`, `head_sha`, `start_sha` (required for inline comments)
-   - If `diff_refs` is not in the output, fetch via `glab_api` GET `projects/:encoded_project/merge_requests/:iid` and extract `diff_refs`.
+2. **MRメタデータの取得**
+   - `glab_mr_view <IID> --output json` を実行して以下を取得する：
+     - タイトル、説明、作成者、ラベル、ソース/ターゲットブランチ
+     - `diff_refs` オブジェクト: `base_sha`, `head_sha`, `start_sha`（インラインコメントに必要）
+   - `diff_refs` が出力に含まれない場合、`glab_api` GET `projects/:encoded_project/merge_requests/:iid` で取得し、`diff_refs` を抽出する。
 
-3. **Fetch and analyze the diff**
-   - Run `glab_mr_diff <IID>` to get the full diff.
-   - For large diffs, read relevant source files locally for full context around changed lines.
-   - Analyze for: bugs, logic errors, security vulnerabilities, performance issues, error handling gaps, and design concerns.
-   - Skip trivial style nits unless they affect readability significantly.
+3. **diffの取得と分析**
+   - `glab_mr_diff <IID>` を実行してフルdiffを取得する。
+   - 大きなdiffの場合、変更行周辺の完全なコンテキストを得るためにローカルのソースファイルを読み取る。
+   - 分析対象: バグ、ロジックエラー、セキュリティ脆弱性、パフォーマンス問題、エラーハンドリングの不備、設計上の懸念。
+   - 可読性に大きく影響しない限り、些細なスタイルの指摘はスキップする。
 
-4. **Post inline diff comments**
-   - For each substantive finding tied to a specific line, post a position-based discussion.
-   - Read `references/gitlab-discussions-api.md` for the exact API call procedure before posting.
-   - Each comment should: state the issue clearly, explain why it matters, and suggest a fix when possible.
+4. **インラインdiffコメントの投稿**
+   - 特定の行に紐づく実質的な指摘事項ごとに、位置ベースのディスカッションを投稿する。
+   - 投稿前に `references/gitlab-discussions-api.md` で正確なAPI呼び出し手順を確認すること。
+   - 各コメントには: 問題の明確な記述、それが重要な理由の説明、可能であれば修正案を含める。
 
-5. **Post summary comment**
-   - After posting inline comments, post a summary via `glab_mr_note <IID> --message "<summary>"`.
-   - Include: overall assessment, number of issues found by severity, and whether the MR is ready to merge.
+5. **サマリーコメントの投稿**
+   - インラインコメント投稿後、`glab_mr_note <IID> --message "<summary>"` でサマリーを投稿する。
+   - 含める内容: 全体評価、重要度別の指摘件数、MRがマージ可能かどうか。
 
-6. **Approve or request changes**
-   - If no blocking issues found and the user requests it, approve via `glab_mr_approve <IID>`.
-   - Otherwise, leave the MR unapproved and state what needs to change.
+6. **承認またはレビュー依頼**
+   - ブロッキングイシューが見つからず、ユーザーが要求した場合、`glab_mr_approve <IID>` で承認する。
+   - そうでなければ、MRを未承認のままとし、変更が必要な点を記述する。
 
-## Inline Diff Comment Procedure
+## インラインdiffコメントの手順
 
-This is the critical procedure for posting comments on specific lines. Follow exactly.
+これは特定の行にコメントを投稿するための重要な手順である。正確に従うこと。
 
-1. Extract SHA values from the MR metadata obtained in step 2:
-   - `base_sha` - the merge base commit
-   - `head_sha` - the head commit of the source branch
-   - `start_sha` - the start commit of the diff
+1. ステップ2で取得したMRメタデータからSHA値を抽出する：
+   - `base_sha` - マージベースコミット
+   - `head_sha` - ソースブランチのヘッドコミット
+   - `start_sha` - diffの開始コミット
 
-2. URL-encode the project path (e.g., `group/project` becomes `group%2Fproject`).
+2. プロジェクトパスをURLエンコードする（例: `group/project` は `group%2Fproject` になる）。
 
-3. For each finding, call `glab_api`. **Use `raw_field` (not `field`)** to avoid Go template rendering that corrupts SHA values.
+3. 各指摘事項について `glab_api` を呼び出す。**Go テンプレートレンダリングによるSHA値の破損を防ぐため、`raw_field`（`field` ではなく）を使用する。**
 
-   **Comment on a new/added line:**
+   **新規（追加）行へのコメント：**
    ```
    args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
    flags:
@@ -72,7 +72,7 @@ This is the critical procedure for posting comments on specific lines. Follow ex
        - "position[new_line]=<line_number>"
    ```
 
-   **Comment on a deleted line:**
+   **削除行へのコメント：**
    ```
    args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
    flags:
@@ -88,19 +88,19 @@ This is the critical procedure for posting comments on specific lines. Follow ex
        - "position[old_line]=<line_number>"
    ```
 
-   **Comment on a modified line (both old and new exist):**
-   Include both `old_line` and `new_line` along with `old_path` and `new_path`.
+   **変更行へのコメント（旧行と新行の両方が存在）：**
+   `old_line` と `new_line` の両方、および `old_path` と `new_path` を含める。
 
-4. If a position-based comment fails (e.g., line not in diff), fall back to a general comment via `glab_mr_note` mentioning the file and line in the message body.
+4. 位置ベースのコメントが失敗した場合（例: 行がdiff内に存在しない）、`glab_mr_note` を使用してメッセージ本文にファイルと行番号を記載した一般コメントにフォールバックする。
 
-## Review Quality Guidelines
+## レビュー品質ガイドライン
 
-- Prioritize: bugs > security > correctness > performance > maintainability
-- Be specific: reference exact variable names, function calls, or conditions
-- Suggest fixes: include code snippets when the improvement is clear
-- Group related issues in a single comment when they affect adjacent lines
-- Avoid: style-only nits, personal preferences, restating what the diff already shows
+- 優先順位: バグ > セキュリティ > 正確性 > パフォーマンス > 保守性
+- 具体的に: 正確な変数名、関数呼び出し、条件を参照する
+- 修正案を提示: 改善内容が明確な場合はコードスニペットを含める
+- 関連する指摘事項は隣接行に影響する場合、単一のコメントにまとめる
+- 避けるべきこと: スタイルのみの指摘、個人的な好み、diffが既に示している内容の繰り返し
 
-## Output
+## 出力
 
-Report each comment posted with file path, line number, and issue summary. End with the review summary and approval status.
+投稿した各コメントについて、ファイルパス、行番号、指摘事項の要約を報告する。レビューサマリーと承認ステータスで締めくくる。

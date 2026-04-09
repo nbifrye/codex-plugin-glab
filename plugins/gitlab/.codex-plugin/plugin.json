@@ -1,7 +1,7 @@
 {
   "name": "GitLab",
   "version": "0.1.0",
-  "description": "[TODO: Brief plugin description]",
+  "description": "GitLabリポジトリ・マージリクエスト・イシューの管理を支援するプラグイン",
   "author": {
     "name": "nbifrye",
     "email": "nbifrye@gmail.com",
@@ -10,15 +10,15 @@
   "homepage": "[TODO: https://docs.example.com/plugin]",
   "repository": "https://github.com/nbifrye/codex-plugin-glab",
   "license": "[TODO: MIT]",
-  "keywords": ["[TODO: keyword1]", "[TODO: keyword2]"],
+  "keywords": ["GitLab", "マージリクエスト", "コードレビュー", "イシュー"],
   "skills": "./skills/",
   "hooks": "./hooks.json",
   "mcpServers": "./.mcp.json",
   "apps": "./.app.json",
   "interface": {
     "displayName": "GitLab",
-    "shortDescription": "[TODO: Short description for subtitle]",
-    "longDescription": "[TODO: Long description for details page]",
+    "shortDescription": "GitLabのMR・イシュー管理とコードレビュー",
+    "longDescription": "MRの確認・トリアージ、イシュー管理、CIチェックのデバッグ、コードレビューの準備を行うGitLabプラグイン",
     "developerName": "nbifrye",
     "category": "[TODO: Productivity]",
     "capabilities": ["[TODO: Interactive]", "[TODO: Write]"],
@@ -26,7 +26,7 @@
     "privacyPolicyURL": "https://about.gitlab.com/privacy/",
     "termsOfServiceURL": "https://about.gitlab.com/terms/",
     "defaultPrompt": [
-      "Inspect MRs, triage issues, debug failing checks, and prepare code changes for review"
+      "MRの確認、イシューのトリアージ、失敗したチェックのデバッグ、コードレビューの準備を行います"
     ],
     "brandColor": "#FC6D26",
     "composerIcon": "./assets/gitlab-logo-500-rgb.png",

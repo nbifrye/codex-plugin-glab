@@ -1,5 +1,5 @@
 interface:
-  display_name: "GitLab MR Review"
-  short_description: "Review MR and post inline comments"
-  default_prompt: "Use $gitlab-mr-review to review the current merge request and post feedback."
+  display_name: "GitLab MR レビュー"
+  short_description: "MRをレビューしてインラインコメントを投稿"
+  default_prompt: "$gitlab-mr-review を使用して、現在のマージリクエストをレビューし、フィードバックを投稿してください。"
   brand_color: "#FC6D26"

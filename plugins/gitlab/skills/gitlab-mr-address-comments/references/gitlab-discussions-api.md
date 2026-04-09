@@ -1,20 +1,20 @@
-# GitLab Discussions API Reference
+# GitLab Discussions API リファレンス
 
-## Overview
+## 概要
 
-The GitLab Discussions API is used to list, reply to, and resolve discussions on merge requests. Use `glab_api` to call these endpoints.
+GitLab Discussions APIは、マージリクエストのディスカッションの一覧表示、返信、解決に使用する。これらのエンドポイントの呼び出しには `glab_api` を使用する。
 
-## Prerequisites
+## 前提条件
 
-### URL-encode the project path
+### プロジェクトパスのURLエンコード
 
-Replace `/` with `%2F` in the project path:
+プロジェクトパス内の `/` を `%2F` に置換する：
 - `my-group/my-project` → `my-group%2Fproject`
 - `group/subgroup/project` → `group%2Fsubgroup%2Fproject`
 
-## List Discussions
+## ディスカッション一覧の取得
 
-**Endpoint:** `GET /projects/:id/merge_requests/:iid/discussions`
+**エンドポイント:** `GET /projects/:id/merge_requests/:iid/discussions`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -22,34 +22,34 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
     method: "GET"
 ```
 
-### Response Structure
+### レスポンス構造
 
-Each discussion contains:
-- `id` - discussion ID (used for replies and resolution)
-- `individual_note` - true if standalone note, false if threaded discussion
-- `notes[]` - array of notes in the discussion:
-  - `notes[].id` - note ID
-  - `notes[].body` - comment text
-  - `notes[].author.username` - author
-  - `notes[].position` - position object (for inline comments):
-    - `position.new_path` - file path in new version
-    - `position.new_line` - line number in new version
-    - `position.old_path` - file path in old version
-    - `position.old_line` - line number in old version
-  - `notes[].resolvable` - whether this note can be resolved
-  - `notes[].resolved` - whether this note is resolved
+各ディスカッションには以下が含まれる：
+- `id` - ディスカッションID（返信と解決に使用）
+- `individual_note` - スタンドアロンのノートの場合はtrue、スレッドディスカッションの場合はfalse
+- `notes[]` - ディスカッション内のノート配列：
+  - `notes[].id` - ノートID
+  - `notes[].body` - コメントテキスト
+  - `notes[].author.username` - 作成者
+  - `notes[].position` - 位置オブジェクト（インラインコメントの場合）：
+    - `position.new_path` - 新バージョンのファイルパス
+    - `position.new_line` - 新バージョンの行番号
+    - `position.old_path` - 旧バージョンのファイルパス
+    - `position.old_line` - 旧バージョンの行番号
+  - `notes[].resolvable` - このノートが解決可能かどうか
+  - `notes[].resolved` - このノートが解決済みかどうか
 
-### Filtering Unresolved Discussions
+### 未解決ディスカッションのフィルタリング
 
-After fetching all discussions, filter client-side:
-- Keep discussions where `notes[].resolvable == true` and `notes[].resolved == false`
-- Skip discussions where all resolvable notes are already resolved
+すべてのディスカッション取得後、クライアント側でフィルタリングする：
+- `notes[].resolvable == true` かつ `notes[].resolved == false` のディスカッションを保持する
+- すべての解決可能ノートが既に解決済みのディスカッションはスキップする
 
-Alternatively, use `glab_mr_view <IID> --comments --unresolved` for a quick text overview (not structured JSON).
+代替手段として、`glab_mr_view <IID> --comments --unresolved` でテキスト形式の簡易概要を取得できる（構造化JSONではない）。
 
-## Reply to a Discussion
+## ディスカッションへの返信
 
-**Endpoint:** `POST /projects/:id/merge_requests/:iid/discussions/:discussion_id/notes`
+**エンドポイント:** `POST /projects/:id/merge_requests/:iid/discussions/:discussion_id/notes`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
@@ -59,9 +59,9 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
       - "body=Reply text here"
 ```
 
-## Resolve / Unresolve a Discussion
+## ディスカッションの解決 / 未解決化
 
-**Endpoint:** `PUT /projects/:id/merge_requests/:iid/discussions/:discussion_id`
+**エンドポイント:** `PUT /projects/:id/merge_requests/:iid/discussions/:discussion_id`
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
@@ -71,9 +71,9 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
       - "resolved=true"
 ```
 
-To unresolve, set `resolved=false`.
+未解決にする場合は `resolved=false` を設定する。
 
-## Error Handling
+## エラーハンドリング
 
-- **404 Not Found**: Check that the project path is correctly URL-encoded and the MR IID is correct.
-- **403 Forbidden**: The authenticated user may not have permission to comment on or resolve discussions in this MR.
+- **404 Not Found**: プロジェクトパスが正しくURLエンコードされているか、MR IIDが正しいか確認する。
+- **403 Forbidden**: 認証されたユーザーがこのMRのディスカッションにコメントまたは解決する権限を持っていない可能性がある。

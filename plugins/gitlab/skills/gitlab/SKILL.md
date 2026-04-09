@@ -1,70 +1,70 @@
 ---
 name: gitlab
-description: Triage and orient GitLab repository, merge request, and issue work through the connected GitLab MCP Server. Use when the user asks for general GitLab help, wants MR or issue summaries, or needs repository context before choosing a more specific GitLab workflow.
+description: 接続されたGitLab MCPサーバーを通じて、GitLabリポジトリ、マージリクエスト、イシューの作業をトリアージ・案内する。ユーザーがGitLab全般のヘルプを求めたり、MRやイシューの要約を必要としたり、より具体的なGitLabワークフローを選択する前にリポジトリのコンテキストが必要な場合に使用する。
 ---
 
 # GitLab
 
-## Overview
+## 概要
 
-Use this skill as the umbrella entrypoint for general GitLab work in this plugin. It should decide whether the task stays in repo and MR triage or should be handed off to a more specific review, CI, or publish workflow.
+このスキルは、本プラグインにおけるGitLab作業全般の入口として使用する。タスクがリポジトリやMRのトリアージに留まるべきか、より具体的なレビュー、CI、パブリッシュのワークフローに引き継ぐべきかを判断する。
 
-This plugin is intentionally hybrid:
+本プラグインは意図的にハイブリッド構成となっている：
 
-- Prefer the GitLab MCP Server from this plugin for repository, issue, merge request, comment, label, reaction, and MR creation workflows.
-- Use local `git` and `glab` only when the connector does not cover the job well, especially for current-branch MR discovery, branch creation, commit and push, `glab auth status`, and GitLab Actions log inspection.
-- Keep connector state and local checkout context aligned. If the request is about the current branch, resolve the local repo and branch before acting.
+- リポジトリ、イシュー、マージリクエスト、コメント、ラベル、リアクション、MR作成のワークフローには、本プラグインのGitLab MCPサーバーを優先的に使用する。
+- コネクタではカバーしきれないジョブ、特に現在のブランチのMR検出、ブランチ作成、コミットとプッシュ、`glab auth status`、GitLab Actionsのログ確認には、ローカルの `git` と `glab` のみ使用する。
+- コネクタの状態とローカルチェックアウトのコンテキストを常に整合させる。リクエストが現在のブランチに関するものであれば、操作前にローカルリポジトリとブランチを解決する。
 
-Once the intent is clear, route to the specialist skill immediately and do not keep broad GitLab triage in scope longer than needed.
+意図が明確になったら、直ちに専門スキルにルーティングし、広範なGitLabトリアージのスコープに留まらないこと。
 
-## Connector-First Responsibilities
+## コネクタ優先の責務
 
-Handle these directly in this skill when the request does not need a narrower specialist workflow:
+より狭い専門ワークフローが不要な場合、以下のリクエストをこのスキル内で直接処理する：
 
-- List, view, and summarize MRs and issues
-- Create, update, close, reopen MRs and issues
-- Manage labels, milestones, assignees, reviewers
-- Check MR approval status
-- View CI/CD pipeline status
+- MRとイシューの一覧表示、閲覧、要約
+- MRとイシューの作成、更新、クローズ、再オープン
+- ラベル、マイルストーン、担当者、レビュアーの管理
+- MRの承認ステータスの確認
+- CI/CDパイプラインのステータス確認
 
-Prefer the GitLab MCP Server from this plugin for those flows because it provides structured MR, issue, and review-adjacent data without depending on a local checkout. If the repository is not already identifiable from the user request or local git context, ask for the repo instead of pretending there is a repo-search flow that may not exist.
+これらのフローには本プラグインのGitLab MCPサーバーを優先的に使用する。ローカルチェックアウトに依存せず、構造化されたMR、イシュー、レビュー関連のデータを提供するためである。ユーザーリクエストやローカルのgitコンテキストからリポジトリを特定できない場合は、存在しないかもしれないリポジトリ検索フローがあるかのように振る舞うのではなく、リポジトリを尋ねること。
 
-## Routing Rules
+## ルーティングルール
 
-1. Resolve the operating context first:
-   - If the user provides a repository, MR number, issue number, or URL, use that.
-   - If the request is about "this branch" or "the current MR", resolve local git context and use `glab` only as needed to discover the branch MR.
-   - If the repository is still ambiguous after local inspection, ask for the repo identifier.
-2. Classify the request before taking action:
-   - MR code review, feedback, or posting review comments → `$gitlab-mr-review`
-   - Addressing, fixing, or responding to unresolved MR review discussions → `$gitlab-mr-address-comments`
-   - General MR/issue triage, listing, creation, or management → handle in this skill
-3. Route to the specialist skill as soon as the category is clear:
-   - **MR review**: `$gitlab-mr-review` - reviewing code and posting inline diff comments
-   - **Address review comments**: `$gitlab-mr-address-comments` - fixing unresolved discussions and replying
-4. Keep the hybrid model consistent after routing:
-   - connector first for MR and issue data
-   - local `git` and `glab` only for the specific gaps the connector does not cover
+1. まず操作コンテキストを解決する：
+   - ユーザーがリポジトリ、MR番号、イシュー番号、またはURLを提供した場合、それを使用する。
+   - リクエストが「このブランチ」や「現在のMR」に関するものであれば、ローカルのgitコンテキストを解決し、必要に応じて `glab` でブランチのMRを検出する。
+   - ローカル調査後もリポジトリが曖昧な場合は、リポジトリ識別子を尋ねる。
+2. 操作前にリクエストを分類する：
+   - MRコードレビュー、フィードバック、レビューコメントの投稿 → `$gitlab-mr-review`
+   - 未解決のMRレビューディスカッションへの対応、修正、返信 → `$gitlab-mr-address-comments`
+   - 一般的なMR/イシューのトリアージ、一覧表示、作成、管理 → このスキル内で処理
+3. カテゴリが明確になったら直ちに専門スキルにルーティングする：
+   - **MRレビュー**: `$gitlab-mr-review` - コードレビューとインラインdiffコメントの投稿
+   - **レビューコメント対応**: `$gitlab-mr-address-comments` - 未解決ディスカッションの修正と返信
+4. ルーティング後もハイブリッドモデルの一貫性を保つ：
+   - MRおよびイシューデータにはコネクタを優先
+   - コネクタがカバーしない特定のギャップにのみローカルの `git` と `glab` を使用
 
-## Default Workflow
+## デフォルトワークフロー
 
-1. Resolve repository and item scope.
-2. Gather structured MR or issue context through the GitLab MCP Server from this plugin.
-3. Decide whether the task stays in connector-backed triage or needs a specialist skill.
-4. Route immediately when the work becomes review follow-up, CI debugging, or publish workflow.
-5. End with a clear summary of what was inspected, what changed, and what remains.
+1. リポジトリとアイテムのスコープを解決する。
+2. 本プラグインのGitLab MCPサーバーを通じて構造化されたMRまたはイシューのコンテキストを収集する。
+3. タスクがコネクタベースのトリアージに留まるべきか、専門スキルが必要かを判断する。
+4. 作業がレビューフォローアップ、CIデバッグ、パブリッシュワークフローに移行したら直ちにルーティングする。
+5. 確認した内容、変更した内容、残タスクの明確な要約で終了する。
 
-## Output Expectations
+## 出力の期待値
 
-- For triage requests, return a concise summary of the repository, MR, or issue state and the next likely action.
-- For mixed requests, tell the user which specialist path you are taking and why.
-- For connector-backed write actions, restate the exact MR, issue, label, or reaction target before applying the change.
-- Never imply that GitLab CI/CD logs are available through the connector alone. That remains a `glab` workflow.
+- トリアージリクエストには、リポジトリ、MR、またはイシューの状態と次のアクションの簡潔な要約を返す。
+- 複合リクエストには、どの専門パスを取るか、その理由をユーザーに伝える。
+- コネクタベースの書き込み操作には、変更を適用する前に、対象のMR、イシュー、ラベル、リアクションを正確に再述する。
+- GitLab CI/CDのログがコネクタだけで取得可能であるかのように示さないこと。それは `glab` ワークフローの範囲である。
 
-## Examples
+## 例
 
-- "Use GitLab to summarize the open MRs in this repo and tell me what needs attention."
-- "Help with this MR."
-- "Review the latest comments on MR 482 and tell me what is actionable."
-- "Debug the failing checks on this branch."
-- "Commit these changes, push them, and open a draft MR."
+- 「GitLabを使ってこのリポジトリのオープンMRを要約し、対応が必要なものを教えて。」
+- 「このMRを手伝って。」
+- 「MR 482の最新コメントを確認して、対応すべき内容を教えて。」
+- 「このブランチの失敗したチェックをデバッグして。」
+- 「これらの変更をコミットしてプッシュし、ドラフトMRを作成して。」
