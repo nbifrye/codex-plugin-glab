@@ -1,0 +1,3 @@
+display_name: "GitLab Merge Requests"
+short_description: "Create, review, and manage GitLab merge requests"
+default_prompt: "List my open merge requests on GitLab."

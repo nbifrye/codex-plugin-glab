@@ -1,0 +1,29 @@
+{
+  "name": "codex-plugin-glab",
+  "version": "0.1.0",
+  "description": "GitLab integration for Codex via glab CLI's built-in MCP server. Provides merge request, issue, and CI/CD pipeline workflows for self-hosted and SaaS GitLab instances.",
+  "author": {
+    "name": "nbifrye",
+    "url": "https://github.com/nbifrye"
+  },
+  "homepage": "https://github.com/nbifrye/codex-plugin-glab",
+  "repository": "https://github.com/nbifrye/codex-plugin-glab",
+  "license": "MIT",
+  "keywords": ["gitlab", "glab", "merge-request", "ci-cd", "issues", "devops", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "GitLab (glab)",
+    "shortDescription": "GitLab workflows via glab CLI",
+    "longDescription": "Interact with GitLab merge requests, issues, and CI/CD pipelines through the glab CLI's MCP server. Works with both GitLab SaaS and self-hosted free-tier instances.",
+    "developerName": "nbifrye",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "List my open merge requests on GitLab.",
+      "Show failing CI pipelines for this project.",
+      "Create a GitLab issue from this bug report."
+    ],
+    "brandColor": "#FC6D26"
+  }
+}

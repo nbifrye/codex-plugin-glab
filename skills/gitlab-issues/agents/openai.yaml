@@ -1,0 +1,3 @@
+display_name: "GitLab Issues"
+short_description: "Create, triage, and manage GitLab issues"
+default_prompt: "List open issues assigned to me on GitLab."

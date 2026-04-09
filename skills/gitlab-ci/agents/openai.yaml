@@ -1,0 +1,3 @@
+display_name: "GitLab CI/CD"
+short_description: "View pipelines, debug failures, and manage CI jobs"
+default_prompt: "Show failing CI pipelines for this project."
