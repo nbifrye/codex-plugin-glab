@@ -28,7 +28,7 @@ glab_api GET projects/<encoded_project>/merge_requests/<iid>
 ### プロジェクトパスのURLエンコード
 
 プロジェクトパス内の `/` を `%2F` に置換する：
-- `my-group/my-project` → `my-group%2Fproject`
+- `my-group/my-project` → `my-group%2Fmy-project`
 - `group/subgroup/project` → `group%2Fsubgroup%2Fproject`
 
 ## インラインディスカッションの作成（位置ベースコメント）
@@ -47,6 +47,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[head_sha]=def456..."
       - "position[start_sha]=ghi789..."
       - "position[position_type]=text"
+      - "position[old_path]=src/main.py"
       - "position[new_path]=src/main.py"
       - "position[new_line]=42"
 ```
@@ -64,6 +65,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[start_sha]=ghi789..."
       - "position[position_type]=text"
       - "position[old_path]=src/main.py"
+      - "position[new_path]=src/main.py"
       - "position[old_line]=10"
 ```
 
