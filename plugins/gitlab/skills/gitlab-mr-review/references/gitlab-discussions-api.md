@@ -41,7 +41,7 @@ Replace `/` with `%2F` in the project path:
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
   flags:
     method: "POST"
-    field:
+    raw_field:
       - "body=Comment text here"
       - "position[base_sha]=abc123..."
       - "position[head_sha]=def456..."
@@ -57,7 +57,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
   flags:
     method: "POST"
-    field:
+    raw_field:
       - "body=Comment text here"
       - "position[base_sha]=abc123..."
       - "position[head_sha]=def456..."
@@ -75,7 +75,7 @@ Include both old and new positions:
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
   flags:
     method: "POST"
-    field:
+    raw_field:
       - "body=Comment text here"
       - "position[base_sha]=abc123..."
       - "position[head_sha]=def456..."
@@ -122,7 +122,7 @@ Each discussion contains:
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
   flags:
     method: "POST"
-    field:
+    raw_field:
       - "body=Reply text here"
 ```
 
@@ -134,7 +134,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
   flags:
     method: "PUT"
-    field:
+    raw_field:
       - "resolved=true"
 ```
 

@@ -47,12 +47,12 @@ Fetch unresolved MR review discussions, implement code fixes, reply explaining e
    - Make minimal, focused changes that directly address the feedback.
 
 7. **Reply to each discussion**
-   - After implementing the fix, reply to the discussion via `glab_api`:
+   - After implementing the fix, reply to the discussion via `glab_api`. **Use `raw_field` (not `field`)** to avoid Go template rendering that corrupts values:
      ```
      args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
      flags:
        method: "POST"
-       field:
+       raw_field:
          - "body=<explanation of the fix>"
      ```
    - Keep replies concise: state what was changed and why.
@@ -63,7 +63,7 @@ Fetch unresolved MR review discussions, implement code fixes, reply explaining e
      args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
      flags:
        method: "PUT"
-       field:
+       raw_field:
          - "resolved=true"
      ```
 

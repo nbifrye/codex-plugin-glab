@@ -55,7 +55,7 @@ Alternatively, use `glab_mr_view <IID> --comments --unresolved` for a quick text
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>/notes"]
   flags:
     method: "POST"
-    field:
+    raw_field:
       - "body=Reply text here"
 ```
 
@@ -67,7 +67,7 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<di
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions/<discussion_id>"]
   flags:
     method: "PUT"
-    field:
+    raw_field:
       - "resolved=true"
 ```
 

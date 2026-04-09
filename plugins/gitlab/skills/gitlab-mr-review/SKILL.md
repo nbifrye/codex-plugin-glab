@@ -54,19 +54,20 @@ This is the critical procedure for posting comments on specific lines. Follow ex
 
 2. URL-encode the project path (e.g., `group/project` becomes `group%2Fproject`).
 
-3. For each finding, call `glab_api` with:
+3. For each finding, call `glab_api`. **Use `raw_field` (not `field`)** to avoid Go template rendering that corrupts SHA values.
 
    **Comment on a new/added line:**
    ```
    args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
    flags:
      method: "POST"
-     field:
+     raw_field:
        - "body=<comment text>"
        - "position[base_sha]=<base_sha>"
        - "position[head_sha]=<head_sha>"
        - "position[start_sha]=<start_sha>"
        - "position[position_type]=text"
+       - "position[old_path]=<file_path>"
        - "position[new_path]=<file_path>"
        - "position[new_line]=<line_number>"
    ```
@@ -76,18 +77,19 @@ This is the critical procedure for posting comments on specific lines. Follow ex
    args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
    flags:
      method: "POST"
-     field:
+     raw_field:
        - "body=<comment text>"
        - "position[base_sha]=<base_sha>"
        - "position[head_sha]=<head_sha>"
        - "position[start_sha]=<start_sha>"
        - "position[position_type]=text"
        - "position[old_path]=<file_path>"
+       - "position[new_path]=<file_path>"
        - "position[old_line]=<line_number>"
    ```
 
    **Comment on a modified line (both old and new exist):**
-   Include both `old_path`/`old_line` and `new_path`/`new_line`.
+   Include both `old_line` and `new_line` along with `old_path` and `new_path`.
 
 4. If a position-based comment fails (e.g., line not in diff), fall back to a general comment via `glab_mr_note` mentioning the file and line in the message body.
 
