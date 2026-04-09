@@ -1,0 +1,48 @@
+{
+  "name": "gitlab",
+  "version": "0.1.0",
+  "description": "[TODO: Brief plugin description]",
+  "author": {
+    "name": "nbifrye",
+    "email": "nbifrye@gmail.com",
+    "url": "https://github.com/nbifrye"
+  },
+  "homepage": "[TODO: https://docs.example.com/plugin]",
+  "repository": "https://github.com/nbifrye/codex-plugin-glab",
+  "license": "[TODO: MIT]",
+  "keywords": [
+    "[TODO: keyword1]",
+    "[TODO: keyword2]"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks.json",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "GitLab",
+    "shortDescription": "[TODO: Short description for subtitle]",
+    "longDescription": "[TODO: Long description for details page]",
+    "developerName": "nbifrye",
+    "category": "[TODO: Productivity]",
+    "capabilities": [
+      "[TODO: Interactive]",
+      "[TODO: Write]"
+    ],
+    "websiteURL": "https://about.gitlab.com/",
+    "privacyPolicyURL": "https://about.gitlab.com/privacy/",
+    "termsOfServiceURL": "https://about.gitlab.com/terms/",
+    "defaultPrompt": [
+      "[TODO: Summarize my inbox and draft replies for me.]",
+      "[TODO: Find open bugs and turn them into tickets.]",
+      "[TODO: Review today's meetings and flag gaps.]"
+    ],
+    "brandColor": "#FC6D26",
+    "composerIcon": "./assets/gitlab-logo-500-rgb.png",
+    "logo": "./assets/gitlab-logo-500-rgb.png",
+    "screenshots": [
+      "[TODO: ./assets/screenshot1.png]",
+      "[TODO: ./assets/screenshot2.png]",
+      "[TODO: ./assets/screenshot3.png]"
+    ]
+  }
+}
