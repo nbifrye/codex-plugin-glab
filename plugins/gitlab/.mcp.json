@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "glab-mcp": {
+    "GitLab MCP Server": {
       "command": "glab",
       "args": ["mcp", "serve"]
     }

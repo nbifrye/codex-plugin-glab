@@ -1,6 +1,6 @@
 ---
 name: gitlab
-description: Triage and orient GitLab repository, merge request, and issue work through the connected `glab-mcp`. Use when the user asks for general GitLab help, wants MR or issue summaries, or needs repository context before choosing a more specific GitLab workflow.
+description: Triage and orient GitLab repository, merge request, and issue work through the connected GitLab MCP Server. Use when the user asks for general GitLab help, wants MR or issue summaries, or needs repository context before choosing a more specific GitLab workflow.
 ---
 
 # GitLab
@@ -11,7 +11,7 @@ Use this skill as the umbrella entrypoint for general GitLab work in this plugin
 
 This plugin is intentionally hybrid:
 
-- Prefer the `glab-mcp` from this plugin for repository, issue, merge request, comment, label, reaction, and MR creation workflows.
+- Prefer the GitLab MCP Server from this plugin for repository, issue, merge request, comment, label, reaction, and MR creation workflows.
 - Use local `git` and `glab` only when the connector does not cover the job well, especially for current-branch MR discovery, branch creation, commit and push, `glab auth status`, and GitLab Actions log inspection.
 - Keep connector state and local checkout context aligned. If the request is about the current branch, resolve the local repo and branch before acting.
 
@@ -23,7 +23,7 @@ Handle these directly in this skill when the request does not need a narrower sp
 
 - xxx
 
-Prefer the `glab-mcp` from this plugin for those flows because it provides structured MR, issue, and review-adjacent data without depending on a local checkout. If the repository is not already identifiable from the user request or local git context, ask for the repo instead of pretending there is a repo-search flow that may not exist.
+Prefer the GitLab MCP Server from this plugin for those flows because it provides structured MR, issue, and review-adjacent data without depending on a local checkout. If the repository is not already identifiable from the user request or local git context, ask for the repo instead of pretending there is a repo-search flow that may not exist.
 
 ## Routing Rules
 
@@ -42,7 +42,7 @@ Prefer the `glab-mcp` from this plugin for those flows because it provides struc
 ## Default Workflow
 
 1. Resolve repository and item scope.
-2. Gather structured MR or issue context through the `glab-mcp` from this plugin.
+2. Gather structured MR or issue context through the GitLab MCP Server from this plugin.
 3. Decide whether the task stays in connector-backed triage or needs a specialist skill.
 4. Route immediately when the work becomes review follow-up, CI debugging, or publish workflow.
 5. End with a clear summary of what was inspected, what changed, and what remains.
