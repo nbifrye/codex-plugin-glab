@@ -10,7 +10,7 @@
   "homepage": "https://github.com/nbifrye/codex-plugin-glab",
   "repository": "https://github.com/nbifrye/codex-plugin-glab",
   "license": "MIT",
-  "keywords": ["GitLab", "マージリクエスト", "コードレビュー", "イシュー"],
+  "keywords": ["GitLab", "マージリクエスト", "コードレビュー", "イシュー", "CI/CD", "パイプライン", "イシュー検索"],
   "skills": "./skills/",
   "hooks": "./hooks.json",
   "mcpServers": "./.mcp.json",
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "GitLab",
     "shortDescription": "GitLabのMR・イシュー管理とコードレビュー",
-    "longDescription": "MRの確認・トリアージ、イシュー管理、CIチェックのデバッグ、コードレビューの準備を行うGitLabプラグイン",
+    "longDescription": "MRの確認・トリアージ・作成、イシュー管理・検索・開発着手、CI/CDパイプライン監視・デバッグ、コードレビュー・レビューコメント対応を行うGitLabプラグイン",
     "developerName": "nbifrye",
     "category": "Productivity",
     "capabilities": ["Interactive", "Write"],

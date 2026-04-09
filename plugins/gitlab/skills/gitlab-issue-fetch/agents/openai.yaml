@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitLab イシュー取得"
+  short_description: "イシュー本文と全コメントを取得・整理"
+  default_prompt: "$gitlab-issue-fetch を使用して、イシューの詳細とコメントを取得してください。"
+  brand_color: "#FC6D26"

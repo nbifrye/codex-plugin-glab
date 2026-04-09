@@ -1,0 +1,5 @@
+interface:
+  display_name: "GitLab CI/CD"
+  short_description: "パイプライン監視と失敗のデバッグ"
+  default_prompt: "$gitlab-ci を使用して、現在のブランチのCI/CDパイプラインのステータスを確認してください。"
+  brand_color: "#FC6D26"
