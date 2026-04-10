@@ -74,7 +74,8 @@ glab_api args: ["groups/<encoded_group>/search"]
 | `--not_author "<user>"` | 作成者除外フィルタ | `--not_author "bot"` |
 | `--milestone "<name>"` | マイルストーンフィルタ | `--milestone "v2.0"` |
 | `--group "<group>"` | グループ横断検索 | `--group "my-org"` |
-| `--closed` | クローズ済みイシューを含める | `--closed` |
+| `--closed` | クローズ済みイシューのみ表示（全状態を取得するには `--all` を使う） | `--closed` |
+| `--all` | オープン・クローズ両方を表示 | `--all` |
 | `--confidential` | 機密イシューのみ | `--confidential` |
 | `--order "<field>"` | ソートキー（`created_at`, `updated_at`, `priority`） | `--order "updated_at"` |
 | `--sort "<dir>"` | ソート順（`asc`, `desc`） | `--sort "desc"` |
