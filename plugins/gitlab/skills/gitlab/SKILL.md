@@ -19,13 +19,15 @@ description: 接続されたGitLab MCPサーバーを通じて、GitLabリポジ
 
 ## コネクタ優先の責務
 
-より狭い専門ワークフローが不要な場合、以下のリクエストをこのスキル内で直接処理する：
+より狭い専門ワークフローが不要な場合、以下のリクエストをこのスキル内で直接処理する。各責務で使用する主な glab MCP ツールも併記する：
 
-- MRとイシューの一覧表示、閲覧、要約
-- MRとイシューの作成、更新、クローズ、再オープン
-- ラベル、マイルストーン、担当者、レビュアーの管理
-- MRの承認ステータスの確認
-- CI/CDパイプラインのステータス確認
+- MR の一覧表示・閲覧・要約 — `glab_mr_list`, `glab_mr_view`
+- MR の作成・更新・クローズ・再オープン — `glab_mr_create`, `glab_mr_update`, `glab_mr_close`, `glab_mr_reopen`
+- MR の承認ステータス確認 — `glab_mr_approvers`
+- イシューの一覧表示・閲覧・要約 — `glab_issue_list`, `glab_issue_view`
+- イシューの作成・更新・クローズ・再オープン — `glab_issue_create`, `glab_issue_update`, `glab_issue_close`, `glab_issue_reopen`
+- ラベル・マイルストーンの参照（担当者・レビュアーの設定は `glab_mr_update` / `glab_issue_update` のフラグ経由） — `glab_label_list`, `glab_milestone_list`
+- CI/CD パイプラインのステータス確認 — `glab_ci_status`
 
 これらのフローには本プラグインのGitLab MCPサーバーを優先的に使用する。ローカルチェックアウトに依存せず、構造化されたMR、イシュー、レビュー関連のデータを提供するためである。ユーザーリクエストやローカルのgitコンテキストからリポジトリを特定できない場合は、存在しないかもしれないリポジトリ検索フローがあるかのように振る舞うのではなく、リポジトリを尋ねること。
 
