@@ -2,7 +2,45 @@
   "mcpServers": {
     "GitLab MCP Server": {
       "command": "glab",
-      "args": ["mcp", "serve"]
+      "args": ["mcp", "serve"],
+      "enabled_tools": [
+        "glab_api",
+        "glab_ci_artifact",
+        "glab_ci_cancel_job",
+        "glab_ci_cancel_pipeline",
+        "glab_ci_config_compile",
+        "glab_ci_delete",
+        "glab_ci_get",
+        "glab_ci_lint",
+        "glab_ci_list",
+        "glab_ci_retry",
+        "glab_ci_run",
+        "glab_ci_run-trig",
+        "glab_ci_status",
+        "glab_ci_trace",
+        "glab_ci_trigger",
+        "glab_issue_close",
+        "glab_issue_create",
+        "glab_issue_list",
+        "glab_issue_note",
+        "glab_issue_reopen",
+        "glab_issue_update",
+        "glab_issue_view",
+        "glab_job_artifact",
+        "glab_label_list",
+        "glab_milestone_list",
+        "glab_mr_approve",
+        "glab_mr_approvers",
+        "glab_mr_checkout",
+        "glab_mr_close",
+        "glab_mr_create",
+        "glab_mr_diff",
+        "glab_mr_list",
+        "glab_mr_note",
+        "glab_mr_reopen",
+        "glab_mr_update",
+        "glab_mr_view"
+      ]
     }
   }
 }
