@@ -2,71 +2,46 @@
 
 GitLab リポジトリ・マージリクエスト・イシューの管理を支援する Claude Code (Codex) プラグインです。
 
-`glab mcp serve` を MCP サーバーとして利用し、137 以上の GitLab CLI ツールを Claude Code に統合します。3 つの専門スキルにより、MR/イシューのトリアージからコードレビュー、レビューコメントへの対応まで、GitLab ワークフロー全体をカバーします。
-
-## 特徴
-
-### GitLab トリアージ (`$gitlab`)
-
-汎用的な GitLab 操作の入口となるスキルです。
-
-- MR・イシューの一覧表示、閲覧、作成、更新、クローズ、再オープン
-- ラベル、マイルストーン、担当者、レビュアーの管理
-- MR の承認ステータス確認
-- CI/CD パイプラインのステータス確認
-- 必要に応じて専門スキルへの自動ルーティング
-
-### MR コードレビュー (`$gitlab-mr-review`)
-
-MR の変更内容をレビューし、フィードバックを投稿します。
-
-- diff の読み取りと分析（バグ、セキュリティ、パフォーマンス、設計）
-- 特定の行への位置ベースのインラインコメント投稿
-- レビューサマリーコメントの投稿
-- MR の承認または変更依頼
-
-### レビューコメント対応 (`$gitlab-mr-address-comments`)
-
-未解決のレビューコメントに対応し、修正を実装します。
-
-- 未解決ディスカッションの一覧取得と解析
-- レビュアーのフィードバックに基づくコード修正の実装
-- 変更内容を説明する返信の投稿
-- ディスカッションの解決
-- 変更のコミットとプッシュ
+`glab mcp serve` を MCP サーバーとして利用し、137 以上の GitLab CLI ツールを Claude Code に統合します。MR のトリアージ・作成・レビュー・コメント対応、イシューの検索・取得・開発着手、CI/CD パイプラインの監視・デバッグまでを、**8 つの専門スキル** でカバーします。
 
 ## アーキテクチャ
 
 本プラグインはビルド不要の設定ベースプラグインで、ハイブリッド構成を採用しています。
 
 - **MCP サーバー** (`glab mcp serve`): リポジトリ、MR、イシュー、コメント、ラベルなどの構造化データへのアクセスを提供
-- **ローカル git / glab CLI**: ブランチ作成、コミット・プッシュ、現在のブランチの MR 検出など、MCP サーバーがカバーしない操作に使用
+- **ローカル git / glab CLI**: ブランチ作成、コミット・プッシュ、現在のブランチの MR 検出、`glab auth status` など、MCP サーバーがカバーしない操作に使用
+
+エントリーポイントとなる `$gitlab` スキルがリクエストを分類し、適切な専門スキルへ自動的にルーティングします。
+
+## ディレクトリ構成
 
 ```
 codex-plugin-glab/
 ├── plugins/gitlab/
 │   ├── .codex-plugin/
-│   │   └── plugin.json                  # プラグインマニフェスト
-│   ├── .mcp.json                        # MCP サーバー設定
-│   ├── .app.json                        # アプリ設定
-│   ├── hooks.json                       # フック設定
+│   │   └── plugin.json                      # プラグインマニフェスト
+│   ├── .mcp.json                            # MCP サーバー設定 (glab mcp serve)
+│   ├── .app.json                            # アプリ設定 (現状未使用)
+│   ├── hooks.json                           # フック設定 (現状未使用)
+│   ├── scripts/                             # 拡張用 (現状未使用)
 │   ├── assets/
-│   │   └── gitlab-logo-500-rgb.png      # GitLab ロゴ
-│   └── skills/
-│       ├── gitlab/
-│       │   └── SKILL.md                 # トリアージスキル
-│       ├── gitlab-mr-review/
-│       │   ├── SKILL.md                 # MR レビュースキル
-│       │   ├── agents/openai.yaml
-│       │   └── references/
-│       │       └── gitlab-discussions-api.md
-│       └── gitlab-mr-address-comments/
-│           ├── SKILL.md                 # コメント対応スキル
-│           ├── agents/openai.yaml
-│           └── references/
-│               └── gitlab-discussions-api.md
+│   │   └── gitlab-logo-500-rgb.png          # GitLab ロゴ
+│   └── skills/                              # 各スキルは SKILL.md + agents/openai.yaml を持つ
+│       ├── gitlab/                          # トリアージ・ルーティング (SKILL.md のみ)
+│       ├── gitlab-mr-review/                # MR コードレビュー
+│       │   └── references/gitlab-discussions-api.md
+│       ├── gitlab-mr-address-comments/      # 未解決レビューコメント対応
+│       │   └── references/gitlab-discussions-api.md
+│       ├── gitlab-mr-create/                # MR 作成
+│       ├── gitlab-ci/                       # CI/CD 監視・デバッグ
+│       │   └── references/gitlab-ci-api.md
+│       ├── gitlab-issue-develop/            # イシュー起点の開発着手
+│       ├── gitlab-issue-fetch/              # イシュー本文・全コメント取得
+│       │   └── references/gitlab-issue-notes-api.md
+│       └── gitlab-issue-search/             # 関連イシュー検索
+│           └── references/gitlab-search-api.md
 └── references/glab/
-    └── tools-list.json                  # glab CLI ツール一覧
+    └── tools-list.json                      # glab CLI ツール一覧
 ```
 
 ## 前提条件
@@ -132,23 +107,41 @@ cp -R path/to/codex-plugin-glab/plugins/gitlab ~/.codex/plugins/gitlab
 
 </details>
 
+## スキル一覧
+
+| スキル | 用途 | 主な操作 |
+|--------|------|----------|
+| `$gitlab` | 汎用トリアージ・ルーティング入口 | MR/イシューの一覧・閲覧、ラベル/担当者管理、専門スキルへの自動ルーティング |
+| `$gitlab-mr-review` | MR コードレビュー | diff 分析（バグ・セキュリティ・パフォーマンス・設計）、行単位インラインコメント、承認/変更依頼 |
+| `$gitlab-mr-address-comments` | 未解決レビューコメント対応 | ディスカッション取得、修正実装、返信投稿、解決、コミット・プッシュ |
+| `$gitlab-mr-create` | 現在のブランチから MR 作成 | タイトル/説明生成、イシューリンク、ラベル・レビュアー・ドラフト設定 |
+| `$gitlab-ci` | CI/CD パイプライン監視・デバッグ | ステータス確認、ジョブログ解析、`.gitlab-ci.yml` lint、手動実行、ジョブのリトライ |
+| `$gitlab-issue-develop` | イシュー起点の開発着手 | イシュー分析、フィーチャーブランチ作成、実装、イシュー紐付けコミット |
+| `$gitlab-issue-fetch` | イシュー本文・全コメント取得 | ページネーション対応、関連 MR/イシュー抽出、時系列整理 |
+| `$gitlab-issue-search` | 関連イシュー探索 | テキスト/ラベル検索、GitLab Search API、関連度評価 |
+
+### スキル連携フロー
+
+`$gitlab` がエントリーポイントとして機能し、ユーザーの意図に応じて専門スキルへ自動的にルーティングします。典型的な連携パターンは次のとおりです。
+
+```
+$gitlab-issue-develop → $gitlab-mr-create → $gitlab-ci → $gitlab-mr-review
+$gitlab-issue-search  → $gitlab-issue-fetch
+```
+
 ## 使い方
 
-### GitLab トリアージ
+### `$gitlab`
 
 ```
-このリポジトリのオープン MR を要約して。
-```
-
-```
-イシュー #123 にラベル「bug」を追加して。
+このリポジトリのオープン MR を要約して、対応が必要なものを教えて。
 ```
 
 ```
-これらの変更をコミットしてプッシュし、ドラフト MR を作成して。
+このブランチの失敗したチェックをデバッグして。
 ```
 
-### MR コードレビュー
+### `$gitlab-mr-review`
 
 ```
 $gitlab-mr-review を使用して、MR !42 をレビューして。
@@ -158,7 +151,7 @@ $gitlab-mr-review を使用して、MR !42 をレビューして。
 現在のブランチの MR をレビューして、インラインコメントを投稿して。
 ```
 
-### レビューコメント対応
+### `$gitlab-mr-address-comments`
 
 ```
 $gitlab-mr-address-comments を使用して、MR !42 の未解決コメントをすべて対応して。
@@ -168,15 +161,43 @@ $gitlab-mr-address-comments を使用して、MR !42 の未解決コメントを
 未解決のレビューコメントを修正して。
 ```
 
-## スキル一覧
+### `$gitlab-mr-create`
 
-| スキル | 説明 | トリガー例 |
-|--------|------|------------|
-| `$gitlab` | 汎用トリアージ・ルーティング | MR/イシューの一覧、作成、管理全般 |
-| `$gitlab-mr-review` | コードレビュー・インラインコメント | MR のレビュー依頼、コード品質チェック |
-| `$gitlab-mr-address-comments` | レビューコメントへの対応・修正 | 未解決ディスカッションの修正依頼 |
+```
+現在のブランチからドラフト MR を作成して。
+```
 
-`$gitlab` スキルがエントリーポイントとして機能し、ユーザーの意図に応じて専門スキルに自動的にルーティングします。
+```
+このブランチからイシュー #42 にリンクした MR を作成して。
+```
+
+### `$gitlab-ci`
+
+```
+現在のブランチの CI/CD パイプラインのステータスを確認して。
+```
+
+```
+MR !42 のパイプライン失敗を診断して、失敗ジョブをリトライして。
+```
+
+### `$gitlab-issue-develop`
+
+```
+イシュー #42 に基づいて開発を始めて。
+```
+
+### `$gitlab-issue-fetch`
+
+```
+イシュー #15 の全コメントを見せて。
+```
+
+### `$gitlab-issue-search`
+
+```
+このエラーメッセージに関連するイシューを探して。
+```
 
 ## MCP ツール
 
@@ -206,16 +227,14 @@ $gitlab-mr-address-comments を使用して、MR !42 の未解決コメントを
 skills/<skill-name>/
 ├── SKILL.md              # スキル定義（frontmatter + ワークフロー）
 ├── agents/
-│   └── openai.yaml       # エージェント設定
-└── references/           # スキルが参照するドキュメント
+│   └── openai.yaml       # エージェント設定（任意）
+└── references/           # スキルが参照するドキュメント（任意）
 ```
 
 - `SKILL.md` の frontmatter (`name`, `description`) がスキルの識別と呼び出し条件を定義します
 - `references/` ディレクトリに API リファレンスなどの補足資料を配置できます
 
-### 拡張ポイント
-
-- `hooks.json` / `.app.json` は現在未使用です。将来的にフック機能やアプリ連携を追加する際に利用します。
+> `hooks.json` / `.app.json` / `scripts/` は現在未使用です。将来的にフック機能やアプリ連携を追加する際に利用します。
 
 ## ライセンス
 
