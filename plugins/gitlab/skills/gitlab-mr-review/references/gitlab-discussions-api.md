@@ -28,7 +28,7 @@ glab_api GET projects/<encoded_project>/merge_requests/<iid>
 ### プロジェクトパスのURLエンコード
 
 プロジェクトパス内の `/` を `%2F` に置換する：
-- `my-group/my-project` → `my-group%2Fproject`
+- `my-group/my-project` → `my-group%2Fmy-project`
 - `group/subgroup/project` → `group%2Fsubgroup%2Fproject`
 
 ## インラインディスカッションの作成（位置ベースコメント）
@@ -37,21 +37,7 @@ glab_api GET projects/<encoded_project>/merge_requests/<iid>
 
 ### 新規（追加）行へのコメント
 
-```
-glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
-  flags:
-    method: "POST"
-    raw_field:
-      - "body=Comment text here"
-      - "position[base_sha]=abc123..."
-      - "position[head_sha]=def456..."
-      - "position[start_sha]=ghi789..."
-      - "position[position_type]=text"
-      - "position[new_path]=src/main.py"
-      - "position[new_line]=42"
-```
-
-### 削除行へのコメント
+`position[new_path]` と `position[new_line]` を指定するが、GitLab API は `position[old_path]` も要求するため、同じファイルパスを渡す（ファイル名変更がない場合）。
 
 ```
 glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
@@ -64,6 +50,26 @@ glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
       - "position[start_sha]=ghi789..."
       - "position[position_type]=text"
       - "position[old_path]=src/main.py"
+      - "position[new_path]=src/main.py"
+      - "position[new_line]=42"
+```
+
+### 削除行へのコメント
+
+`position[old_path]` と `position[old_line]` を指定するが、GitLab API は `position[new_path]` も要求するため、同じファイルパスを渡す（ファイル名変更がない場合）。
+
+```
+glab_api args: ["projects/<encoded_project>/merge_requests/<iid>/discussions"]
+  flags:
+    method: "POST"
+    raw_field:
+      - "body=Comment text here"
+      - "position[base_sha]=abc123..."
+      - "position[head_sha]=def456..."
+      - "position[start_sha]=ghi789..."
+      - "position[position_type]=text"
+      - "position[old_path]=src/main.py"
+      - "position[new_path]=src/main.py"
       - "position[old_line]=10"
 ```
 

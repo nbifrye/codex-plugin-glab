@@ -22,9 +22,11 @@ description: >-
 2. **イシュー本文の取得**
    - `glab_issue_view <IID> --output json` を実行してイシューの構造化データを取得する：
      - タイトル、説明（本文）、作成者、ラベル、マイルストーン
-     - 担当者、作成日時、更新日時、状態（open/closed）
-     - 関連リンク（`linked_issues`, `linked_mr`）
+     - 担当者、作成日時、更新日時、状態（`opened`/`closed`）
    - 説明が長い場合もすべて取得する。
+   - 関連アイテムは Issue API のレスポンスには含まれないため、別エンドポイントから取得する：
+     - 関連 MR: `glab_api GET projects/<encoded_project>/issues/<iid>/related_merge_requests`
+     - リンクされたイシュー: `glab_api GET projects/<encoded_project>/issues/<iid>/links`
 
 3. **コメント（ノート）の取得**
    - `glab_issue_view <IID> --comments` で人間が読みやすい形式のコメント概要を取得する。
@@ -43,7 +45,7 @@ description: >-
      - **メタデータ**: タイトル、状態、ラベル、マイルストーン、担当者、作成者、日時
      - **本文**: イシューの説明（description）全文
      - **コメント一覧**: 各コメントの投稿者、日時、内容を時系列で表示
-     - **関連アイテム**: 関連MR、関連イシューのリンク
+     - **関連アイテム**: `related_merge_requests` と `links` エンドポイントから取得した関連MR・関連イシュー
    - システムノート（`system: true`）とユーザーコメントを区別して表示する。
 
 6. **要約の提供**
